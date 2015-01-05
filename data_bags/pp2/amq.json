@@ -1,0 +1,93 @@
+{
+  "name": "data_bag_item_pp2_amq",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "pp2",
+  "raw_data": {
+    "id": "amq",
+    "pp2-prd": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "pp2_amq",
+        "jdbc_host": "prd-pp2-db-master.oe-sys.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "pp2_amq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-stg": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "pp2_amq",
+        "jdbc_host": "stg-pp2-db-master.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "pp2_amq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-qa": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "pp2_amq",
+        "jdbc_host": "qa-pp2-db-master.dev.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "pp2_amq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-qa1": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "pp2_amq",
+        "jdbc_host": "qa1-pp2-db-master.dev.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "pp2_amq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-qa2": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "pp2_amq",
+        "jdbc_host": "qa2-pp2-db-master.dev.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "pp2_amq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-qas": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "qas-pp2-db-master.dev.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5433",
+        "jdbc_user": "srv_mq",
+        "jmx_user": "controlRole"
+      }
+    },
+    "pp2-qar": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "qar-pp2-db-master.dev.thinkglish.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5433",
+        "jdbc_user": "srv_mq",
+        "jmx_user": "controlRole"
+      }
+    }
+  }
+}

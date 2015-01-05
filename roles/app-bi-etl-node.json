@@ -1,0 +1,27 @@
+{
+  "name": "app-bi-etl-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "bi-prd": [
+      "role[base]"
+    ],
+    "bi-stg": [
+      "role[base]"
+    ],
+    "bi-dev": [
+      "role[base]"
+    ],
+    "bi-qa": [
+      "role[base]"
+    ]
+  }
+}

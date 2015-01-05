@@ -1,0 +1,15 @@
+<VirtualHost _default_:443>
+
+        SSLEngine On
+        SSLProxyEngine On
+        SSLCertificateFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.crt
+        SSLCertificateKeyFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.key
+        SSLCertificateChainFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.ca
+
+
+    # Setup a reverse proxy using http, rather than ajp so ssl is NOT propagated
+    # if ssl is propagated, tomcat will create a secure session cookie rather than
+    # an insecure one that can be used over mixed protocols
+    ProxyPass / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+</VirtualHost>

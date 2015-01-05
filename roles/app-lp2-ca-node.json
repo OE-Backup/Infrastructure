@@ -1,0 +1,141 @@
+{
+  "name": "app-lp2-ca-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "access_groups": [
+      {
+        "group": "lp2"
+      }
+    ],
+    "tomcat": {
+      "databag": "lp2-ca",
+      "version": 7,
+      "log4j": {
+        "filename": "/opt/open-english/lp2-ca/config/log4j.xml",
+        "owner": "tomcat7",
+        "group": "tomcat7",
+        "mode": "0644",
+        "appenders": [
+          {
+            "name": "fileAppender",
+            "file": "/opt/open-english/lp2-ca/logs/application.log",
+            "layout_class": "org.apache.log4j.PatternLayout",
+            "ConversionPattern": "%d{ISO8601}  %-5p: %c - %m%n"
+          }
+        ]
+      },
+      "appdirs": [
+        {
+          "type": "symlink",
+          "path": "/opt/open-english/lp2-ca/webapps",
+          "dest": "/var/lib/tomcat7/webapps"
+        },
+        {
+          "path": "/opt/open-english/lp2-ca/logs",
+          "mode": "0755"
+        }
+      ]
+    },
+    "java": {
+      "jdk_version": 7,
+      "install_flavor": "oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      }
+    },
+    "apache": {
+      "vhosts": [
+        "00-lp2-ca",
+        "00-lp2-ca-ssl"
+      ]
+    },
+    "ssl": {
+      "type": "keystore",
+      "pem": {
+        "prefix": "/opt/open-english/ssl"
+      },
+      "pkcs12": {
+        "prefix": "/opt/open-english/ssl"
+      },
+      "keystore": {
+        "prefix": "/opt/open-english/ssl"
+      }
+    },
+    "monitoring": {
+      "loggly": {
+        "services": {
+          "tomcat": {
+            "filename": "/var/log/tomcat7/catalina.out"
+          },
+          "application": {
+            "filename": "/opt/open-english/lp2-ca/logs/application.log"
+          }
+        }
+      }
+    },
+    "oe-logs": {
+      "services": {
+        "tomcat": {
+          "log": {
+            "prefix": "/mnt/log/tomcat7",
+            "symlink": "/var/log/tomcat7",
+            "owner": "tomcat7",
+            "group": "lp2"
+          },
+          "logrotate": {
+            "logfile": "/var/log/tomcat7/*.log",
+            "interval": "daily",
+            "rotate_count": "90",
+            "owner": "tomcat7",
+            "group": "lp2"
+          }
+        }
+      }
+    }
+  },
+  "override_attributes": {
+    "apache": {
+      "default_modules": [
+        "status",
+        "alias",
+        "auth_basic",
+        "authn_file",
+        "authz_host",
+        "authz_user",
+        "autoindex",
+        "dir",
+        "env",
+        "mime",
+        "negotiation",
+        "setenvif"
+      ]
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-ca]",
+      "recipe[oe-monitoring::datadog]",
+      "recipe[oe-monitoring::appdynamics]",
+      "recipe[oe-monitoring::loggly]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-ca]",
+      "recipe[oe-monitoring::loggly]"
+    ],
+    "lp2-dev": [
+      "role[base]",
+      "recipe[lp2-ca]"
+    ],
+    "lp2-qa": [
+      "role[base]",
+      "recipe[lp2-ca]"
+    ]
+  }
+}

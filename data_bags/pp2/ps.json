@@ -1,0 +1,9 @@
+{
+  "name": "data_bag_item_pp2_ps",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "pp2",
+  "raw_data": {
+    "id": "ps"
+  }
+}

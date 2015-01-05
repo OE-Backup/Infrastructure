@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller-info>
+
+    <controller-host><%= node['ad_controller_host'] %></controller-host>
+    <controller-port>80</controller-port>
+    <controller-ssl-enabled>false</controller-ssl-enabled>
+    
+    <application-name><%= node.chef_environment %></application-name>
+    <tier-name><%= node['roles'][0] %></tier-name>
+    <node-name><%= node.name %></node-name>
+
+    <agent-runtime-dir></agent-runtime-dir>
+    <enable-orchestration>false</enable-orchestration>
+    <account-name><%= node['ad_name'] %></account-name>
+    <account-access-key><%= node['ad_access-key'] %></account-access-key>
+    <force-agent-registration>false</force-agent-registration>
+
+</controller-info>

@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /mnt/backups
+s3cmd sync * <%= node['lp2']['db']['postgresql']['config']['backup_s3_path'] %>

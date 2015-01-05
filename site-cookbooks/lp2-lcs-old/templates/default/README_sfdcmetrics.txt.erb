@@ -1,0 +1,6 @@
+If this node is configured as master: 
+
+* You must uncompress SFDCmetrics tool zip in <%= node['lp2']['sfdcmetrics']['path'] %>/tool/.
+  Those zip files are downloaded in the directory <%= node['lp2']['sfdcmetrics']['path'] %>/zips/.
+
+* You must enable SFDCmetrics cron job rule in /etc/cron.hourly (it's already setup but the script it's commented).

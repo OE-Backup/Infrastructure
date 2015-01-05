@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd"> 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <param name="Target" value="System.out" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ISO8601} %-5p: %c - %m%n" />
+    </layout>
+  </appender>
+
+  <% @appenders.each do |appender| -%>
+  <appender name="<%= appender['name'] %>"
+    class="<%= appender['appender_class'] || 'org.apache.log4j.DailyRollingFileAppender' %>">
+        <param name="File" value="<%= appender['file'] %>" />
+        <% unless appender['file_pattern'].nil? -%>
+        <param name="DatePattern" value="<%= appender['pattern'] %>"/>
+        <% end -%>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="INFO"/>
+        <layout class="<%= appender['layout_class'] || 'org.apache.log4j.PatternLayout' %>">
+            <param name="ConversionPattern" value="<%= appender['layout_pattern'] || '%d{ISO8601}  %-5p: %c - %m%n' %>"/>
+        </layout>
+    </appender>
+  <% end -%>
+
+  <% @loggers.each do |class_name, attrs| -%>
+  <logger name="<%= class_name %>">
+    <level value="<%= attrs['level'] %>"/>
+  </logger>
+  <% end -%>
+
+  <root>
+    <priority value="INFO" />
+    <appender-ref ref="console" />
+    <% @appenders.each do |appender| -%>
+    <appender-ref ref="<%= appender['name'] %>" />
+    <% end -%>
+  </root>
+
+</log4j:configuration>
+

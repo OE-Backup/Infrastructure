@@ -1,0 +1,277 @@
+{
+  "name": "data_bag_item_lp2_settings",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "lp2",
+  "raw_data": {
+    "id": "settings",
+    "lp2-dev": {
+    },
+    "lp2-prd": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "prd-lp2-db.oe-sys.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "oe_activemq",
+        "jmx_user": "controlRole"
+      },
+      "aws": {
+        "ses_access_key_id": "AKIAIR24K7DNISBVFDIA"
+      },
+      "datadog": {
+        "db_monitor_role": "datadog"
+      },
+      "db": {
+        "route53_access_key_id": "AKIAIZHKVGZGC4LGRQCA",
+        "s3_access_key_id": "AKIAIPE7JHQIF4VP5SVA",
+        "ses_access_key_id": "AKIAJRYISN7BEDVQHGAA",
+        "ses_endpoint": "email-smtp.us-east-1.amazonaws.com:587"
+      },
+      "easydita": {
+        "apache": {
+          "server_name": "easydita.openenglish.com"
+        },
+        "easyditaCredentials": {
+          "amazon_bucket_name": "lessons.openenglish.com",
+          "amazon_bucket_url": "http://lessons.openenglish.com/",
+          "amazon_service_keyid": "AKIAJZENAUTSE2ZULRIQ",
+          "easydita_production_username": "ezequiel.farina@openenglish.com",
+          "easydita_stage_username": "ezequiel.farina@openenglish.com",
+          "ftp_host": "ftp.openenglish.com",
+          "ftp_username": "oeproduct",
+          "mail_auth": "true",
+          "mail_host": "email-smtp.us-east-1.amazonaws.com",
+          "mail_port": "587",
+          "mail_starttls": "true",
+          "mail_user": "AKIAJ6JMNRTXLZS6ERWA"
+        },
+        "easyditaDatabase": {
+          "jdbc_databaseurl": "jdbc:postgresql://prd-lp2-db.oe-sys.com:5432/edita",
+          "jdbc_driverClassName": "org.postgresql.Driver",
+          "jdbc_username": "easydita"
+        },
+        "tomcat": {
+          "default_index_checksum": "7b1cc4e93819dacbfd1de8ad9f6473a4"
+        }
+      },
+      "ins": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_in"
+      },
+      "lcs": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_lcs"
+      },
+      "mobile": {
+        "artifactory_user": "devops"
+      },
+      "ss": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_ss"
+      },
+      "tp": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_tp",
+        "tomcat": {
+          "default_index_checksum": "c243df337b0e8dc299eddaa849b476f9"
+        }
+      },
+      "comm": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_comm",
+        "memcached_nodes": "n1:prd-lp2-cache-clstr.z1sku1.0001.use1.cache.amazonaws.com:11211,n2:prd-lp2-cache-clstr.z1sku1.0002.use1.cache.amazonaws.com:11211,n3:prd-lp2-cache-clstr.z1sku1.0003.use1.cache.amazonaws.com:11211"
+      },
+      "ui": {
+        "apache": {
+          "server_name": "learningplatform.openenglish.com"
+        },
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_ui",
+        "memcached_nodes": "n1:prd-lp2-ui-cach-clst.z1sku1.0001.use1.cache.amazonaws.com:11211,n2:prd-lp2-ui-cach-clst.z1sku1.0002.use1.cache.amazonaws.com:11211,n3:prd-lp2-ui-cach-clst.z1sku1.0003.use1.cache.amazonaws.com:11211"
+      }
+    },
+    "lp2-prod": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "prd-lp2-db.oe-sys.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "oe_activemq"
+      },
+      "aws": {
+        "ses_access_key_id": "AKIAIR24K7DNISBVFDIA"
+      },
+      "ins": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_in"
+      },
+      "lcs": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_lcs"
+      },
+      "ss": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_ss"
+      },
+      "tp": {
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_tp",
+        "tomcat": {
+          "default_index_checksum": "c243df337b0e8dc299eddaa849b476f9"
+        }
+      },
+      "ui": {
+        "apache": {
+          "server_name": "learningplatform.openenglish.com"
+        },
+        "jdbc_url": "jdbc:postgresql://prd-lp2-db.oe-sys.com/lp20",
+        "jdbc_user": "lp20_ui",
+        "memcached_nodes": "n1:prd-lp2-ui-cach-clst.z1sku1.0001.use1.cache.amazonaws.com:11211,n2:prd-lp2-ui-cach-clst.z1sku1.0002.use1.cache.amazonaws.com:11211,n3:prd-lp2-ui-cach-clst.z1sku1.0003.use1.cache.amazonaws.com:11211"
+      }
+    },
+    "lp2-qa": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "oe_activemq",
+        "jmx_user": "controlRole"
+      },
+      "aws": {
+        "ses_access_key_id": "AKIAIXQH7QPPHD3B5PSA"
+      },
+      "db": {
+        "route53_access_key_id": "",
+        "s3_access_key_id": "",
+        "ses_access_key_id": "",
+        "ses_endpoint": "email-smtp.us-east-1.amazonaws.com:587"
+      },
+      "ins": {
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20"
+      },
+      "lcs": {
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20"
+      },
+      "mobile": {
+        "artifactory_user": "devops"
+      },
+      "ss": {
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20"
+      },
+      "tp": {
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20",
+        "tomcat": {
+          "default_index_checksum": "c243df337b0e8dc299eddaa849b476f9"
+        }
+      },
+      "ui": {
+        "apache": {
+          "server_name": "qa-lp2.thinkglish.com"
+        },
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20",
+        "memcached_nodes": "n1:qa-lp2.i9zlnc.0001.usw2.cache.amazonaws.com:11211"
+      },
+      "comm": {
+        "jdbc_url": "jdbc:postgresql://qa-lp2-db-master.thinkglish.com/qa_lp20",
+        "jdbc_user": "qa_lp20",
+        "memcached_nodes": "n1:qa-lp2.i9zlnc.0001.usw2.cache.amazonaws.com:11211"
+      }
+    },
+    "lp2-stg": {
+      "amq": {
+        "jdbc_datasource": "postgres",
+        "jdbc_db": "activemq",
+        "jdbc_host": "stg-db-master-92.i.oe-sys.com",
+        "jdbc_initialConnections": "1",
+        "jdbc_maxConnections": "10",
+        "jdbc_port": "5432",
+        "jdbc_user": "oe_activemq",
+        "jmx_user": "controlRole"
+      },
+      "aws": {
+        "ses_access_key_id": "AKIAIXQH7QPPHD3B5PSA"
+      },
+      "db": {
+        "route53_access_key_id": "AKIAIZHKVGZGC4LGRQCA",
+        "s3_access_key_id": "AKIAIPE7JHQIF4VP5SVA",
+        "ses_access_key_id": "AKIAJRYISN7BEDVQHGAA",
+        "ses_endpoint": "email-smtp.us-east-1.amazonaws.com:587"
+      },
+      "easydita": {
+        "apache": {
+          "server_name": "easydita.thinkglish.com"
+        },
+        "easyditaCredentials": {
+          "amazon_bucket_name": "lessons.openenglish.com",
+          "amazon_bucket_url": "http://lessons.openenglish.com/",
+          "amazon_service_keyid": "AKIAJZENAUTSE2ZULRIQ",
+          "easydita_production_username": "ezequiel.farina@openenglish.com",
+          "easydita_stage_username": "ezequiel.farina@openenglish.com",
+          "ftp_host": "ftp.openenglish.com",
+          "ftp_username": "oeproduct",
+          "mail_auth": "true",
+          "mail_host": "email-smtp.us-east-1.amazonaws.com",
+          "mail_port": "587",
+          "mail_starttls": "true",
+          "mail_user": "AKIAJ6JMNRTXLZS6ERWA"
+        },
+        "easyditaDatabase": {
+          "jdbc_databaseurl": "jdbc:postgresql://stg-db-master-i.thinkglish.com:5432/edita",
+          "jdbc_driverClassName": "org.postgresql.Driver",
+          "jdbc_username": "easydita"
+        },
+        "tomcat": {
+          "default_index_checksum": "7b1cc4e93819dacbfd1de8ad9f6473a4"
+        }
+      },
+      "ins": {
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_in"
+      },
+      "lcs": {
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_lcs"
+      },
+      "mobile": {
+        "artifactory_user": "devops"
+      },
+      "tp": {
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_tp",
+        "tomcat": {
+          "default_index_checksum": "c243df337b0e8dc299eddaa849b476f9"
+        }
+      },
+      "comm": {
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_comm",
+        "memcached_nodes": "n1:stg-lp2-cache.thxnzz.0001.euw1.cache.amazonaws.com:11211,n2:stg-lp2-cache.thxnzz.0002.euw1.cache.amazonaws.com:11211,n3:stg-lp2-cache.thxnzz.0003.euw1.cache.amazonaws.com:11211"
+      },
+      "ui": {
+        "apache": {
+          "server_name": "lp20.thinkglish.com"
+        },
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_ui",
+        "memcached_nodes": "n1:stg-lp2-cache.thxnzz.0001.euw1.cache.amazonaws.com:11211,n2:stg-lp2-cache.thxnzz.0002.euw1.cache.amazonaws.com:11211,n3:stg-lp2-cache.thxnzz.0003.euw1.cache.amazonaws.com:11211"
+      },
+      "ss": {
+        "jdbc_url": "jdbc:postgresql://stg-lp2-db.thinkglish.com/lp20",
+        "jdbc_user": "lp20_ss"
+      }
+    }
+  }
+}

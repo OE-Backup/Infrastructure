@@ -1,0 +1,32 @@
+{
+	"id": "store2",
+	"pp2-prd": {
+	  "aws": {
+	    "ses_access_key_id": "AKIAIR24K7DNISBVFDIA"
+	  },
+	  "store2": {
+	    "jmx_user": "controlRole",
+	    "conf_file_value": "/opt/env_variables/configuration.properties",
+	    "memcached_nodes": "n1:prd-store2-ccluster.z1sku1.0001.use1.cache.amazonaws.com:11211,n2:prd-store2-ccluster.z1sku1.0002.use1.cache.amazonaws.com:11211,n3:prd-store2-ccluster.z1sku1.0003.use1.cache.amazonaws.com:11211"
+	  }
+	},
+	"pp2-stg": {	
+	  "store2": {
+	    "jmx_user": "controlRole",
+	    "conf_file_value": "/opt/env_variables/configuration.properties",
+	    "memcached_nodes": "n1:stg-store2-ccache.thxnzz.0001.euw1.cache.amazonaws.com:11211,n2:stg-store2-ccache.thxnzz.0002.euw1.cache.amazonaws.com:11211,n3:stg-store2-ccache.thxnzz.0003.euw1.cache.amazonaws.com:11211"
+	  }
+	},
+	"pp2-qas": {
+	  "store2": {
+	    "jmx_user": "controlRole",
+	    "conf_file_value": "/opt/env_variables/configuration.properties"
+	  }
+	},
+	"pp2-qar": {
+	  "store2": {
+	    "jmx_user": "controlRole",
+	    "conf_file_value": "/opt/env_variables/configuration.properties"
+	  }
+	} 
+}

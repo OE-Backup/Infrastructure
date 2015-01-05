@@ -1,0 +1,44 @@
+# Cmnd alias specification
+
+Cmnd_Alias APACHECMDS = /usr/sbin/apache2ctl *
+Cmnd_Alias VIM = /usr/bin/vim *
+Cmnd_Alias EXP = /usr/bin/vim * /opt/env_variables
+Cmnd_Alias WWW = /bin/su www-data
+Cmnd_Alias TOMCAT6CMDS = /etc/init.d/tomcat6 *, /usr/bin/vim * /etc/default/tomcat6, /usr/bin/rm /etc/default/.tomcat6.swp, /usr/sbin/service tomcat6 *
+Cmnd_Alias CP6 = /bin/cp /var/lib/tomcat6/webapps/*
+Cmnd_Alias RM6 = /bin/rm /var/lib/tomcat6/webapps/*, /bin/rm -rf /var/log/tomcat6/*, /usr/bin/truncate /var/log/tomcat6/catalina.out, /bin/rm -rf /var/lib/tomcat6/work/*
+Cmnd_Alias TOMCAT7CMDS = /etc/init.d/tomcat7 *, /usr/bin/vim * /etc/default/tomcat7, /usr/bin/rm /etc/default/.tomcat7.swp, /usr/sbin/service tomcat7 *, /usr/bin/vim /var/lib/tomcat7/conf/context.xml
+Cmnd_Alias CP7 = /bin/cp *.war /var/lib/tomcat7/webapps/*, /bin/cp /var/log/tomcat7/*
+Cmnd_Alias RM7 = /bin/rm -rf /var/lib/tomcat7/webapps/*, /bin/rm -rf /var/log/tomcat7/*, /usr/bin/truncate /var/log/tomcat7/catalina.out, /bin/rm -rf /var/lib/tomcat7/work/*
+Cmnd_Alias LESS7 = /usr/bin/less /var/log/tomcat7/*
+Cmnd_Alias TAIL7 = /usr/bin/tail -f /var/log/tomcat7/*
+Cmnd_Alias POSTFIXCMDS = /etc/init.d/postfix *
+Cmnd_Alias DOTUSER = /bin/su - dotcms
+Cmnd_Alias ETCOPEN = /usr/bin/mv * /etc/open_english/, /usr/bin/rm * /etc/open_english/, /usr/bin/cp * /etc/open_english/
+Cmnd_Alias RUBYCMDS = /usr/bin/lsof *, /usr/bin/nohup *, /opt/oe_stub/.rvm/bin/rvmsudo *, /usr/bin/vim config.yml, /usr/bin/vim /opt/oe_stub/config.yml, /usr/bin/vim oe_stub/config.yml
+Cmnd_Alias KILL = /bin/kill *
+Cmnd_Alias LS7 = /bin/ls -l /var/log/tomcat7/*
+Cmnd_Alias DPKG = /usr/bin/dpkg -i /tmp/*
+Cmnd_Alias LP2_CMDS= APACHECMDS, WWW, TOMCAT6CMDS, CP6, RM6, TOMCAT7CMDS, CP7, RM7, TAIL7, LESS7, LS7, DPKG
+# Allow members of group Infra and Infosec to execute any command
+
+%infra  ALL=(ALL:ALL) ALL
+%infosec  ALL=(ALL:ALL) ALL
+
+# Limit execute commands groups - LDAP Group (Delivery Center)
+
+%fnc ALL=NOPASSWD: APACHECMDS, WWW, TOMCAT7CMDS, CP7, RM7, LESS7, TAIL7, TOMCAT6CMDS, CP6, RM6, ETCOPEN, RUBYCMDS, KILL
+%ops ALL=NOPASSWD: APACHECMDS, WWW, TOMCAT6CMDS, CP6, RM6
+%website ALL=NOPASSWD: APACHECMDS, WWW, TOMCAT6CMDS, CP6, RM6, DOTUSER
+%lp ALL=NOPASSWD: APACHECMDS, WWW, TOMCAT6CMDS, CP6, RM6, TOMCAT7CMDS, CP7, RM7
+%lp2 ALL=NOPASSWD: LP2_CMDS
+%bi ALL=NOPASSWD: WWW
+#%dba
+#%salesforce
+#%its
+#%cts
+#%engineering
+
+# Allow execute commands for old "deployer" user
+
+deployer ALL=NOPASSWD: VIM, APACHECMDS, WWW, TOMCAT7CMDS, CP7, RM7, LESS7, TAIL7, TOMCAT6CMDS, CP6, RM6, DOTUSER, EXP, ETCOPEN, RUBYCMDS, KILL

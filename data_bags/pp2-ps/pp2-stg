@@ -1,0 +1,22 @@
+id:     pp2-stg
+tomcat:
+  cipher:         aes-256-cbc
+  encrypted_data: cjBK5gykie7MGj+D78PipyV/mAAFDInmSmPvgzrvYbkodxXtfC/TvXhJ6y3A
+  qmXGX2CsKuebFB2ElJQxgXoNjBCUD6Eyezeae0208+9warKWDFngDXmZdQXK
+  TDFtpQLaVTLePEZlxLhvxq7QZ7EFlrrCURs7Nf0lCCXZh6nTqusPSed7xnLi
+  fLbIbNlmWUDCILkYgf7EvlVlsIKCQHDR9nDe0AYI+NLXSZ5Yh2guBTFJIGXI
+  1u/HvaLut3mtiHZthnLnU2t/cvvzEZefj3X2XzcXqNfk8XWnNP7V6pBQQUsB
+  wYoyCP7u0JjTAGDZUxMfGajcQ12KuHvpaPMWnRrHmpVSZbG781r17FYiuMBI
+  0LmnAhHN53NeA+xxfz3QUTgN7KfXW+4Jvm6C9yqkvjM8CdVO2KjYUaLb6OPO
+  eqV7g7ETWaKX3mUEAWL0qFXt0z7GrmQUqdy0EuZNGoscDtOVBEbiV73TRi1T
+  sItpZcAH+eOg+GtJw4ww9drrAEcJXguEfu49acOVSRKYHpHZDEbdNcU4fNN1
+  oBG4lz++Yx72FJ+AQu43z/6e9b6GqXHGKbiAlMTTxVVbNyAJ7Rm2ecVuCJ/o
+  4TPmaXiQZgolNC4RI05eskk5t1jy85Ht0OvuLckYZOhVLWPpAa60fzeszTQe
+  Fpt5Ef0RTboc7VoHO2oYbOKVSNBavCweodJqze72+cEgBxO7ZsQVRYWC4mla
+  RDmnZEtwC4AcrpuenRf4p+/4Z1Xe9IW/CYXBxgh5gok1rHScODNFjTk4rx/3
+  pDHtzAnmwptu6XxzSpsEiJ/mcWwolw0KtH0lmpvvvDIl2oc9Zo1Vz8IqHNZ+
+  mXsYkVsmpAoZNlK+r++DpZFiQuQ6djGLMBCfN6YCBOqeRnmuCeCF9N4W
+  
+  iv:             mYFwgVbfpFbOGL6/zPiHtA==
+  
+  version:        1

@@ -1,0 +1,71 @@
+{
+  "name": "app-pp2-ps-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "tomcat": {
+      "version": 7,
+      "databag": "pp2-ps",
+      "properties_prefix": "/opt/pp2/env"
+    },
+    "ssl": {
+      "pem": {
+        "prefix": "/opt/pp2/ssl"
+      },
+      "pkcs12": {
+        "prefix": "/opt/pp2/ssl"
+      },
+      "keystore": {
+        "prefix": "/opt/pp2/ssl"
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp2-prd": [
+      "role[base]",
+      "recipe[pp2-ps::default]",
+      "recipe[pp2-ps::fo]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-stg": [
+      "role[base]",
+      "recipe[pp2-ps::default]",
+      "recipe[pp2-ps::fo]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-dev": [
+      "role[base]",
+      "recipe[pp2-ps::default]"
+    ],
+    "pp2-qa": [
+      "role[base]",
+      "recipe[pp2-ps::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qa1": [
+      "role[base]",
+      "recipe[pp2-ps::default]"
+    ],
+    "pp2-qa2": [
+      "role[base]",
+      "recipe[pp2-ps::default]"
+    ],
+    "pp2-qar": [
+      "role[base]",
+      "recipe[pp2-ps::default]"
+    ],
+    "pp2-qas": [
+      "role[base]",
+      "recipe[pp2-ps::default]"
+    ]
+  }
+}

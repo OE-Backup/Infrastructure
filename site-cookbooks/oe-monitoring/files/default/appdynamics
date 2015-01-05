@@ -1,0 +1,48 @@
+#!/bin/bash 
+# 
+# Init file for AppDynamics Machine Agent 
+# 
+# chkconfig: 2345 60 25 
+# description: machine agent for AppDynamics
+
+#CHANGE ME: Set to the agent's install directory 
+JAVA=java
+
+#CHANGE ME: Set to the agent's install directory 
+AGENT_HOME="/opt/appDynamics/MachineAgent"
+AGENT="$AGENT_HOME/machineagent.jar" 
+
+# Agent Options 
+AGENT_OPTIONS="" 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dappdynamics.agent.applicationName=<application-name>" 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dappdynamics.agent.logging.dir=" 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dmetric.http.listener=true | false 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dmetric.http.listener.port=<port>" 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dserver.name=<hostname>" 
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dappdynamics.agent.tierName=<tiername>"
+#AGENT_OPTIONS="$AGENT_OPTIONS -Dappdynamics.agent.nodeName=<nodename>"
+
+start() 
+{ 
+nohup $JAVA $AGENT_OPTIONS -jar $AGENT > /dev/null 2>&1 & 
+}
+
+stop() 
+{ 
+ps -opid,cmd |egrep "[0-9]+ java.*machineagent" | awk '{print $1}' | xargs --no-run-if-empty kill -9 
+}
+
+case "$1" in 
+start) 
+start 
+;; 
+stop) 
+stop 
+;; 
+restart) 
+stop 
+start 
+;; 
+*) 
+echo "Usage: $0 start|stop|restart" 
+esac

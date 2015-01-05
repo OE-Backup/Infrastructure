@@ -1,0 +1,17 @@
+{
+  "name": "lp2-qa",
+  "description": "",
+  "cookbook_versions": {
+    "tomcat": "= 0.14.4"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "accessgrp": "lp2",
+    "lp2": {
+      "domain": "thinkglish.com"
+    }
+  },
+  "override_attributes": {
+  }
+}

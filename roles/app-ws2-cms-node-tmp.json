@@ -1,0 +1,27 @@
+{
+  "name": "app-ws2-cms-node-tmp",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "website2-prd": [
+      "role[base]"
+    ],
+    "website2-stg": [
+      "role[base]"
+    ],
+    "website2-dev": [
+      "role[base]"
+    ],
+    "website2-qa": [
+      "role[base]"
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "name": "app-lp2-ui-node",
+  "description": "LP 2.0 User Interface application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "tomcat": {
+      "base_version": 7,
+      "java_options": "-Djava.awt.headless=true -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -server -d64 -Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Duser.language=en -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Duser.timezone=America/New_York -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=/var/log/tomcat7/jvm.log",
+      "deploy_manager_apps": true
+    },
+    "lp2": {
+      "oe-probe_url": "https://s3.amazonaws.com/infra-packages/oe-probe-tomcat7.war",
+      "oe-probe_checksum": "103ab8b1ea54ee5e5ddb3b066d3987dcca87469e83308b95a6a16a55d6e3a91d",
+      "ui": {
+        "jars_url": "https://s3.amazonaws.com/infra-packages/lp2/ui",
+        "lp2-qa": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ui/oeui-6.1.9.war",
+          "war_checksum": "9779a7e5bf336bc1b1f4b0bfcb078861eb9f790eaa4f9474a015ce0ad167d3f4"
+        },
+        "lp2-stg": {
+          "war_url": "https://dl.dropboxusercontent.com/s/4s1qt0of7u3aw7q/oeui-7.1.0.war?token_hash=AAEB0_HoCIViqbLLeAv5zaM8V04wdXS07uO8vOxNVPqPdQ&dl=1",
+          "war_checksum": "9b2ddb5969a7b4573688ae8b573a79d26a98ed109b7509320a1d787a6c54152c"
+        },
+        "lp2-prod": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ui/oeui-6.1.9.war",
+          "war_checksum": "9779a7e5bf336bc1b1f4b0bfcb078861eb9f790eaa4f9474a015ce0ad167d3f4"
+        },
+        "lp2-prd": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ui/oeui-6.1.9.war",
+          "war_checksum": "9779a7e5bf336bc1b1f4b0bfcb078861eb9f790eaa4f9474a015ce0ad167d3f4"
+        }
+      }
+    },
+    "apache": {
+      "listen_ports": [
+        "80",
+        "81",
+        "443"
+      ],
+      "status_allow_list": "localhost ip6-localhost 10.32.0.0/16"
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-ui::default]",
+      "recipe[lp2-ui::monit]",
+      "recipe[lp2-ui::loggly]",
+      "recipe[oe-monitoring::appdynamics]",
+      "recipe[oe-monitoring::datadog]",
+      "recipe[oeinfra::swap]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-ui::default]",
+      "recipe[lp2-ui::monit]",
+      "recipe[lp2-ui::loggly]",
+      "recipe[oeinfra::swap]",
+      "recipe[oe-monitoring::appdynamics]",
+      "recipe[oe-monitoring::datadog]"
+    ],
+    "lp2-qa": [
+      "role[base]",
+      "recipe[lp2-ui::default]"
+    ],
+    "lp2-dev": [
+      "role[base]",
+      "recipe[lp2-ui::default]"
+    ]
+  }
+}

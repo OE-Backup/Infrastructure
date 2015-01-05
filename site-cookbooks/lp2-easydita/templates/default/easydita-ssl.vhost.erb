@@ -1,0 +1,39 @@
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+    ServerAdmin opr@openenglish.com
+
+#    DocumentRoot /srv/www
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+
+    #CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+    CustomLog /dev/null combined
+
+    #   SSL Engine Switch:
+    #   Enable/Disable SSL for this virtual host.
+
+    SSLEngine on
+
+    SSLCertificateFile    /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.crt
+    SSLCertificateKeyFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.key
+    SSLCACertificateFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.ca
+
+#<Location "/oe-probe">
+#        Satisfy Any
+#</Location>
+
+ProxyPass /oe-probe ajp://127.0.0.1:8009/oe-probe
+ProxyPassReverse /oe-probe ajp://127.0.0.1:8009/oe-probe
+
+#<Location />
+#  AuthType Basic
+#  AuthName "Login"
+#  AuthUserFile /etc/apache2/sites-conf/auth
+#  Require valid-user
+#</Location>
+
+ProxyPass / ajp://127.0.0.1:8009/
+ProxyPassReverse / ajp://127.0.0.1:8009/
+
+</VirtualHost>
+</IfModule>

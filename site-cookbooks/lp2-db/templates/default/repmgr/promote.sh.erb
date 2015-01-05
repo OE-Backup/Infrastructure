@@ -1,0 +1,14 @@
+# UPdate del DNS
+local_address=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
+cli53 rrdelete <%= node['lp2']['db']['domain'] %> <%= node['lp2']['db']['hostname'] %> && cli53 rrcreate -x 60 <%= node['lp2']['db']['domain'] %> <%= node['lp2']['db']['hostname'] %> A $local_address
+RETURN=$?
+# Me Promuevo Slave a MASTER y salgo de repmgrd
+
+#tail -100 /mnt/postgresql/log/repmgr.log | |mail -s "PROD - FAILOVER POSTGRES DB - nodo 2 " downtime@openenglish.com  i
+
+if [ $RETURN -eq 1]
+        then
+                mail -s "PROD - FAILOVER POSTGRES DB - nodo 2 - fallo cli53 " notifications@openenglish.com
+        else
+                repmgr -f <%= node['lp2']['db']['postgresql']['homedir'] %>/repmgr/repmgr.conf --verbose standby promote  >/mnt/postgresql/log/promote.log 2>&1
+fi

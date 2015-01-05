@@ -1,0 +1,40 @@
+aws:
+  aws_cli53_key:  AKIAIZHKVGZGC4LGRQCA
+  aws_script_url: https://s3.amazonaws.com/infra-packages/aws
+  dev:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  prd:
+    aws_readonly_key: AKIAI4M6LZPO5WZE24TA
+  prod:
+    aws_readonly_key: AKIAI4M6LZPO5WZE24TA
+  qa:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  qa1:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  qa2:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  qar:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  qas:
+    aws_readonly_key: AKIAIE7HWF5P4XF5Z6RA
+  stg:
+    aws_readonly_key: AKIAI4M6LZPO5WZE24TA
+aws_ses:
+  prd:
+    access_key_id: AKIAIR24K7DNISBVFDIA
+    endpoint:      email-smtp.us-east-1.amazonaws.com:587
+    host:          email-smtp.us-east-1.amazonaws.com
+    port:          587
+  stg:
+    access_key_id: AKIAIXQH7QPPHD3B5PSA
+    endpoint:      email-smtp.us-east-1.amazonaws.com:587
+    host:          email-smtp.us-east-1.amazonaws.com
+    port:          587
+cron-node:
+  aws:
+    s3:
+      access_key_id: AKIAILE3CFTVE5KXHIXA
+    ses:
+      access_key_id: AKIAIR24K7DNISBVFDIA
+      endpoint:      email-smtp.us-east-1.amazonaws.com:587
+id:        settings

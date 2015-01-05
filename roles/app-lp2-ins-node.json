@@ -1,0 +1,84 @@
+{
+  "name": "app-lp2-ins-node",
+  "description": "LP 2.0 Integration Services application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "tomcat": {
+      "base_version": 7,
+      "java_options": "-Dssm.cache.disable=true -Djava.awt.headless=true -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -server -d64 -Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Duser.language=en -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Duser.timezone=America/New_York -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=/var/log/tomcat7/jvm.log",
+      "deploy_manager_apps": true,
+      "authbind": "yes",
+      "port": 80,
+      "ssl_port": 443
+    },
+    "lp2": {
+      "oe-probe_url": "https://s3.amazonaws.com/infra-packages/oe-probe-tomcat7.war",
+      "oe-probe_checksum": "103ab8b1ea54ee5e5ddb3b066d3987dcca87469e83308b95a6a16a55d6e3a91d",
+      "ins": {
+        "jars_url": "https://s3.amazonaws.com/infra-packages/lp2/ins",
+        "lp2-stg": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ins/LP2TOSalesForceIntegration-7.1.5.war",
+          "war_checksum": "eb98c4747649cd751e0b7244071ee5b1219ec66293ae72550db6c073981fc5ea"
+        },
+        "lp2-prd": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ins/LP2TOSalesForceIntegration-6.1.9.war",
+          "war_checksum": "822ac00e982e0f38e7033cb208e83bf91f5cc79cfdfd9152c920d15b5a2d1ea0"
+        },
+        "lp2-qa": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/ins/LP2TOSalesForceIntegration-6.1.9.war",
+          "war_checksum": "822ac00e982e0f38e7033cb208e83bf91f5cc79cfdfd9152c920d15b5a2d1ea0"
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-ins::default]",
+      "recipe[lp2-ins::monit]",
+      "recipe[lp2-ins::loggly]",
+      "recipe[oe-monitoring::appdynamics]",
+      "recipe[oe-monitoring::datadog]",
+      "recipe[oeinfra::swap]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-ins::default]",
+      "recipe[lp2-ins::monit]",
+      "recipe[lp2-ins::loggly]",
+      "recipe[oeinfra::swap]",
+      "recipe[oe-monitoring::appdynamics]",
+      "recipe[oe-monitoring::datadog]"
+    ],
+    "lp2-qa": [
+      "role[base]",
+      "recipe[lp2-ins::default]"
+    ],
+    "lp2-dev": [
+      "role[base]",
+      "recipe[lp2-ins::default]"
+    ]
+  }
+}

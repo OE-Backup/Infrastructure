@@ -1,0 +1,11 @@
+name             'lp2-lcs'
+maintainer       'Ariel Eusebi'
+maintainer_email 'ariel.eusebi@openenglish.com'
+license          'All rights reserved'
+description      'Installs/Configures lp2-lcs'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.0.6'
+depends          'tomcat'
+depends          'monit'
+depends          'datadog'
+depends          'oeinfra'

@@ -1,0 +1,69 @@
+{
+  "name": "lp2-prd",
+  "description": "LP 2.0 production environment",
+  "cookbook_versions": {
+    "tomcat": "= 0.14.4",
+    "lp2-ui": "= 0.1.16",
+    "lp2-ss": "= 0.1.5",
+    "lp2-tp": "= 0.1.6",
+    "lp2-ins": "= 0.1.4",
+    "oe-monitoring": "= 0.1.8",
+    "apt": "= 2.0.0",
+    "apache2": "= 1.7.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "etc": {
+      "comment": "To be removed after bugfixin oeinfra::ldapauth",
+      "group": {
+        "infra": {
+          "members": [
+            "ecastagnari",
+            "hdominguez"
+          ]
+        }
+      }
+    },
+    "accessgrp": "lp2",
+    "monitoring": {
+      "appdynamics": {
+        "enabled": "true"
+      },
+      "datadog": {
+        "enabled": "true"
+      }
+    },
+    "lp2": {
+      "domain": "openenglish.com",
+      "db": {
+        "domain": "oe-sys.com",
+        "hostname": "prd-db-master-92-i",
+        "notify_email": "notifications@openenglish.com",
+        "sysctl": {
+          "kernel": {
+            "shmmax": 27150328978,
+            "shmall": 6628498
+          }
+        }
+      },
+      "mobile": {
+        "version": "1.0.6"
+      },
+      "api": {
+        "version": "2.0.27",
+        "deb_url": "http://artifactory.thinkglish.com/artifactory/simple/libs-release-local/com/openenglish/lp2/lp2-api-package/2.0.27/lp2-api-package-2.0.27.deb"
+      },
+      "ui": {
+        "elb": {
+          "cname": "learningplatform.openenglish.com"
+        }
+      }
+    },
+    "monit": {
+      "notify_email": "notifications@openenglish.com"
+    }
+  },
+  "override_attributes": {
+  }
+}

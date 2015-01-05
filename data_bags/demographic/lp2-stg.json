@@ -1,0 +1,15 @@
+{
+  "name": "data_bag_item_demographic_lp2-stg",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "demographic",
+  "raw_data": {
+    "id": "lp2-stg",
+    "tomcat": {
+      "encrypted_data": "4QiF2xD/Se1Jfd6Whsx76hc5L+2EEkR0WR4i+ldxh1zGw2cPzCGuy2MJQUL2\nOIutDQ26XH778Wqi38YenmS9EqXC7QVqL8i7Dc8OdN9SAlc5Mpqg6z9Ux8l4\nb1QpTX1DnxidzYLs0Maf8KUzUgR+4K2XYrr4QcSPvR/St9xMIfR7aTVtLkKL\nyEHu5cZUgA/lpGQjb+2GM8oBI9dPASyjKSD3144HqA8SxB50unqKrTMD7Y3K\n1OgQC91yK6TBJHih/5+Idmio3pvEcZmmAJqjh0MQScwJkvmukinvCR0HFDIj\nLt72FshSDiF17W15JwO5nAwxRMBPeL5d4DA44+AKnIGeMp5HZ98O3nYYu18A\nbsncaN3JhHr21Jd/neYWImx+6nLfDiNihl+1CwtE5CrM7ncQuKrS32IB97X6\nJoo1EPQH7AAUBIrYENaiShVkK/pLasruZhPHkQcrYilu5WDAvEqjjGSAQ8s4\n69TQwrISMfOKFhrGOwrwMbEM5EmiPA+/whBiW+/fwDiP0EHNIt/kpMQnUG+3\nBOdEjtFMzUKdQ7Ngsnxu9rDJCDZoUzVlUWCVF/sBQ2XoVBz+6eUAsDEzcyKr\nyZTJ5vNMCR1X2lW+N37VMD3gpzzrKsEz+bvyJ1c9ZXj0aH8zVe8CgEzU8FuH\n5Q==\n",
+      "iv": "49klqbi2m0oersc6cZu3bA==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

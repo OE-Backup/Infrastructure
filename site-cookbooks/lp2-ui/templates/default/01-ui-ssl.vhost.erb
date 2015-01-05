@@ -1,0 +1,63 @@
+<VirtualHost _default_:443>
+    ServerName <%= node['lp2']['ui']['elb']['cname'] %>
+    ServerName <%= node.name %>.<%= @domain %>
+    # this let's apache fetch all of the static content for the application
+    # essentially we are aliasing directories that point into the exploded WAR directory of the app
+    # this should match the insecure VirtualHost entries
+    Alias /css /var/lib/tomcat7/webapps/ROOT/css
+    Alias /js /var/lib/tomcat7/webapps/ROOT/js
+    Alias /images /var/lib/tomcat7/webapps/ROOT/images
+    Alias /fonts /var/lib/tomcat7/webapps/ROOT/fonts
+
+    <% if node.run_list().role_names().include?('app-lp2-mobile-node') %>
+    Alias /app /opt/open-english/lp2-mobile/htdocs/app
+    ProxyPass /app !
+    <% end %>
+
+    ExpiresActive on
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # this is where we are forcibly switching from https to http
+    RewriteEngine On
+    RewriteCond %{HTTPS} on
+
+    SSLEngine On
+    SSLProxyEngine On
+    SSLCertificateFile      <%= node['ssl']['pem']['prefix'] %>/<%= node['ssl']['fqdn'] %>/<%= node['ssl']['fqdn'] %>.cert
+    SSLCertificateKeyFile   <%= node['ssl']['pem']['prefix'] %>/<%= node['ssl']['fqdn'] %>/<%= node['ssl']['fqdn'] %>.key
+    SSLCACertificateFile    <%= node['ssl']['pem']['prefix'] %>/<%= node['ssl']['fqdn'] %>/<%= node['ssl']['fqdn'] %>.ca
+    SSLCertificateChainFile <%= node['ssl']['pem']['prefix'] %>/<%= node['ssl']['fqdn'] %>/<%= node['ssl']['fqdn'] %>.chaincert
+
+    # if we're on an https page we don't want to switch the protocol back to http for the following requests
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{REQUEST_URI} !^/css
+    RewriteCond %{REQUEST_URI} !^/js
+    RewriteCond %{REQUEST_URI} !^/fonts
+    RewriteCond %{REQUEST_URI} !^/images
+    RewriteCond %{REQUEST_URI} !^/login/config
+    RewriteCond %{REQUEST_URI} !^(/login.html|/account/preferences.html|/activationStart.html|/activation.html)
+    RewriteCond %{HTTP:X-Requested-With} !^(XMLHttpRequest|xmlhttprequest)
+    RewriteRule $ http://%{HTTP_HOST}%{REQUEST_URI}
+
+    # Do proxy our nls calls to the back-end
+    ProxyPass /js/nls http://localhost:8080/js/nls
+
+    # Do not proxy our calls for static content
+    ProxyPass /css !
+    ProxyPass /js !
+    ProxyPass /fonts !
+    ProxyPass /images !
+
+    # Setup a reverse proxy using http, rather than ajp so ssl is NOT propagated
+    # if ssl is propagated, tomcat will create a secure session cookie rather than
+    # an insecure one that can be used over mixed protocols
+    ProxyPass / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" proxy
+    SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" forwarded
+    CustomLog ${APACHE_LOG_DIR}/ui_access_ssl.log combined env=!forwarded
+    CustomLog ${APACHE_LOG_DIR}/ui_access_ssl.log proxy env=forwarded
+
+</VirtualHost>

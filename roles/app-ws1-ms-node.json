@@ -1,0 +1,27 @@
+{
+  "name": "app-ws1-ms-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "microsites-prd": [
+      "role[base]"
+    ],
+    "microsites-stg": [
+      "role[base]"
+    ],
+    "microsites-dev": [
+      "role[base]"
+    ],
+    "microsites-qa": [
+      "role[base]"
+    ]
+  }
+}

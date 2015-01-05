@@ -1,0 +1,5 @@
+check process activemq with pidfile /opt/activemq/data/activemq.pid
+  start program = "/usr/sbin/service activemq start"
+  stop program = "/usr/sbin/service activemq stop"
+  if failed port 61616 then alert
+  if failed port 61616 for 2 cycles then restart	

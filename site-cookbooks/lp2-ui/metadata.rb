@@ -1,0 +1,13 @@
+name             'lp2-ui'
+maintainer       'Miguel Landaeta'
+maintainer_email 'miguel@openenglish.com'
+license          'All rights reserved'
+description      'Installs/Configures lp2-ui'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.1.16'
+depends          'apache2'
+depends          'apt'
+depends          'tomcat'
+depends          'oe-tomcat'
+depends          'monit'
+depends          'datadog'

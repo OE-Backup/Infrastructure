@@ -1,0 +1,15 @@
+{
+  "name": "data_bag_item_lp2-sfo_lp2-prd",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "lp2-sfo",
+  "raw_data": {
+    "id": "lp2-prd",
+    "tomcat": {
+      "encrypted_data": "dnM5MZrVsfzXeGLEQ2ef17jjRDW8E9uvgjMr8+JaY0PDz+MPNjMdMdn/lHPW\nIR8YMPXBNWLdXDfUYokIoSeyOfLXkdlEbhlfd1k5oiYU3+8qZdVaVXfT6WB+\nA9J2tVspWXkxEu6rYLi0yW34HazG6M0IJv+iazqll+/fuaOYBWBRrckCCY88\nAhwyzhD7drilhDWrENbHrYCChHzQ314VRmeMhvPsOyBXv6VA/ataLbyKgnqq\n7zIb1nqUJW+R3UM7CatguwX1hfTZSr/ei2ckEERYYePIx9NsjANQJofY7GG1\nTjW/fin4U4uIt0Guyxwl2tCN7FMyxmwa83z14T0OdeR5uRQG6rFc9nshjgkj\nZ2BXEJol67MCrsh2Z0hy6Ay9vM+5q6Q7EqIQQtaocslhORVZx620rEiR/bvT\nJhwzTeHy8s9Nq7c/57z1lNfUXb2YlT8/cZ8cOSN2z34vfs/fZPIPgd4sU+yx\nvnP5WnwN0nmqtoPvP/YKZcMNQww1shQx2WZwrrSwst3NSNZudJnctcCaetM3\nRu7tgOBWfcukXke1r0hNDjsZSte+kZMPWfAcKHOcVNg8/Fo07eDEEJjloNLr\nFR+kGw3GRF55X6XrPYxKPYov7oxFhNajMVWQaNa2rqW/TWMUE8INsbHDtZw+\n1EQpB5ahVKEPLXO+Fa9cko7yY1Q+tFf3stY6FHnzKwiSW6DrjeSzOktoLW+L\njrbW567RM2ivN3ude3glN9C//Ge60OD+Cpa37Yore0QlcveNlizIGGV6iFG1\nvNjy1cqmESBYfYaY8S7wfR3gGwqMO8GGpT6i5J358NBy3GzSxEIMtMOYcTi/\nYNAIYK3B7Ln85+IJEuyFlo3dBhJDz5OcBWnJtA7uS/0Avgmq8Xgi7+jY\n",
+      "iv": "NZUz2MkateySRMz174h44g==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

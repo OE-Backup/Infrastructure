@@ -1,0 +1,64 @@
+{
+  "name": "svc-devops-jenkins-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "jenkins": {
+      "master": {
+        "install_method": "package",
+        "version": "1.559"
+      }
+    },
+    "oe-jenkins": {
+      "plugins": [
+        "ant",
+        "artifactory",
+        "build-pipeline-plugin",
+        "cobertura",
+        "conditional-buildstep",
+        "copyartifact",
+        "credentials",
+        "cvs",
+        "envinject",
+        "external-monitor-job",
+        "git",
+        "git-client",
+        "github",
+        "github-api",
+        "github-oauth",
+        "git-parameter",
+        "gradle",
+        "greenballs",
+        "htmlpublisher",
+        "javadoc",
+        "ldap",
+        "m2release",
+        "mailer",
+        "maven-plugin",
+        "pam-auth",
+        "parameterized-trigger",
+        "promoted-builds",
+        "run-condition",
+        "scm-api",
+        "sonar",
+        "ssh-agent",
+        "ssh-credentials",
+        "ssh-slaves",
+        "subversion",
+        "thinBackup",
+        "throttle-concurrents",
+        "token-macro",
+        "translation"
+      ]
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[oe-jenkins::default]"
+  ],
+  "env_run_lists": {
+  }
+}

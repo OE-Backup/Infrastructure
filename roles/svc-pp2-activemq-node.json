@@ -1,0 +1,49 @@
+{
+  "name": "svc-pp2-activemq-node",
+  "description": "PP 2.0 ActiveMQ Service node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp2-prd": [
+      "role[base]",
+      "recipe[pp2-amq::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-stg": [
+      "role[base]",
+      "recipe[pp2-amq::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qa": [
+      "role[base]",
+      "recipe[pp2-amq::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qa1": [
+      "role[base]",
+      "recipe[pp2-amq::default]"
+    ],
+    "pp2-qa2": [
+      "role[base]",
+      "recipe[pp2-amq::default]"
+    ],
+    "pp2-qas": [
+      "role[base]",
+      "recipe[pp2-amq::default]"
+    ],
+    "pp2-qar": [
+      "role[base]",
+      "recipe[pp2-amq::default]"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "svc-infra-nfs-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "infra-prd": [
+      "role[base]",
+      "recipe[infra-nfs]"
+    ],
+    "infra-stg": [
+      "role[base]",
+      "recipe[infra-nfs]"
+    ],
+    "infra-dev": [
+      "role[base]",
+      "recipe[infra-nfs]"
+    ],
+    "infra-qa": [
+      "role[base]",
+      "recipe[infra-nfs]"
+    ]
+  }
+}

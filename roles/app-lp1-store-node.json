@@ -1,0 +1,27 @@
+{
+  "name": "app-lp1-store-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp1-prd": [
+      "role[base]"
+    ],
+    "lp1-stg": [
+      "role[base]"
+    ],
+    "lp1-dev": [
+      "role[base]"
+    ],
+    "lp1-qa": [
+      "role[base]"
+    ]
+  }
+}

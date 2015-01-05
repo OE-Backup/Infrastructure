@@ -1,0 +1,49 @@
+#!/bin/sh
+###############################################################################
+#
+### BEGIN INIT INFO
+# Provides:            repmgrd
+# Required-Start:      $remote_fs $all
+# Required-Stop:       $remote_fs
+# Should-Start:        $local_fs
+# Should-Stop:         $local_fs
+# Default-Start:       2 3 4 5
+# Default-Stop:        0 1 6
+# Short-Description:   Start repmgrd
+# Description:         Start Repmgr daemon
+### END INIT INFO
+#
+###############################################################################
+
+REPMGRD_OPTS="-f <%= node['postgresql']['prefix']['cfg'] %>/repmgr.conf --monitoring-history"
+
+[ -x <%= node['postgresql']['prefix']['install'] %>/bin/repmgrd ] || exit 1
+
+ACTION=${1} ; shift
+
+case "${ACTION}" in
+
+  start)
+    start-stop-daemon -S \
+      -c <%= node['postgresql']['user']['name'] %> \
+      -g <%= node['postgresql']['user']['name'] %> \
+      -x <%= node['postgresql']['prefix']['install'] %>/bin/repmgrd \
+      --background \
+      -- ${REPMGRD_OPTS}
+    ;;
+
+  stop)
+    start-stop-daemon -K \
+      -c <%= node['postgresql']['user']['name'] %> \
+      -g <%= node['postgresql']['user']['name'] %> \
+      -x <%= node['postgresql']['prefix']['install'] %>/bin/repmgrd \
+    ;;
+
+  restart)
+    $0 stop
+    $0 start
+    ;;
+
+  *)
+    echo " Usage: ${0} start|stop|restart"
+esac

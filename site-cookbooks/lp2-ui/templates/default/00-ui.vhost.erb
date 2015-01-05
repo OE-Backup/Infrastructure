@@ -1,0 +1,48 @@
+<VirtualHost *:80>
+    ServerName <%= node['lp2']['ui']['elb']['cname'] %>
+    # this let's apache fetch all of the static content for the application
+    # essentially we are aliasing directories that point into the exploded WAR directory of the app
+    # this should match the secure VirtualHost entries
+    Alias /css /var/lib/tomcat7/webapps/ROOT/css
+    Alias /js /var/lib/tomcat7/webapps/ROOT/js
+    Alias /images /var/lib/tomcat7/webapps/ROOT/images
+    Alias /fonts /var/lib/tomcat7/webapps/ROOT/fonts
+    <% if node.run_list().role_names().include?('app-lp2-mobile-node') %>
+    Alias /app /opt/open-english/lp2-mobile/htdocs/app
+    ProxyPass /app !
+    <% end %>
+
+    ExpiresActive on
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # this is where we are forcibly switching from insecure (http) to secure (https)
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+
+    # We are securing the pages that send user credentials over the wire
+    RewriteCond %{REQUEST_URI} ^(/login.html|/account/preferences.html|/activationStart.html|/activation.html)
+    RewriteRule $ https://%{HTTP_HOST}%{REQUEST_URI}
+
+    # Do proxy our nls calls to the back-end
+    ProxyPass /js/nls http://localhost:8080/js/nls
+
+    # Do not proxy our calls for static content
+    ProxyPass /css !
+    ProxyPass /js !
+    ProxyPass /fonts !
+    ProxyPass /images !
+
+    # Setup a reverse proxy using http, rather than ajp so ssl is NOT propagated
+    # if ssl is propagated, tomcat will create a secure session cookie rather than
+    # an insecure one that can be used over mixed protocols
+    ProxyPassReverseCookieDomain .localhost .<%= @domain %>
+    ProxyPass / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" proxy
+    SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" forwarded
+    CustomLog ${APACHE_LOG_DIR}/ui_access.log combined env=!forwarded
+    CustomLog ${APACHE_LOG_DIR}/ui_access.log proxy env=forwarded
+
+</VirtualHost>

@@ -1,0 +1,7 @@
+check process tomcat with pidfile /var/run/tomcat7.pid
+  start program = "/etc/init.d/tomcat7 start"
+  as uid root gid root
+  stop program = "/etc/init.d/tomcat7 stop"
+  as uid root gid root
+  if failed port 80 then alert
+  if failed port 80 for 5 cycles then restart

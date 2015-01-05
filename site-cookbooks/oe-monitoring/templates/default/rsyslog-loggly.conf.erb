@@ -1,0 +1,14 @@
+$ModLoad imfile
+$InputFileName <%= @cfg['filename'] %>
+$InputFileTag <%= @cfg['filetag'] %>:
+$InputFileStateFile <%= @cfg['statefile'] %>
+$InputFileSeverity <%= @cfg['severity'] %>
+$InputRunFileMonitor
+$InputFilePollInterval <%= @cfg['pollinterval'] %>
+
+$template LogglyFormat,"<%%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [<%= @loggly_id %> tag=\"<%= @cfg['tags'] %>\"] %msg%\n"
+
+$MaxMessageSize 64k
+
+if $programname == '<%= @cfg['filetag'] %>' then @@<%= @cfg['server'] %>; LogglyFormat
+& ~

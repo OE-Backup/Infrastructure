@@ -1,0 +1,12 @@
+name		 'pp2-store2'
+maintainer	 'Analía Lorenzatto'
+maintainer_email 'analia.lorenzatto@openenglish.com'
+license          'All rights reserved'
+description      'Installs/Configures pp2-store2'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.0.8'
+depends		 'oe-tomcat'
+depends          'apt'
+depends		 'oe-logs' 
+depends		 'oe-apache2'
+#depends          'oeinfra'

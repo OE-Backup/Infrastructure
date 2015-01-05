@@ -1,0 +1,19 @@
+$ModLoad imfile
+$InputFileName /var/log/tomcat6/catalina.out
+$InputFileTag tomcat:
+$InputFileStateFile catalina-out
+$InputFileSeverity info
+$InputRunFileMonitor
+$InputFilePollInterval 1
+$MaxMessageSize 64k
+$InputFileReadMode 1
+
+############################
+# Settings for Loggly Gen2 #
+############################
+#forward to loggly: https://openenglish.loggly.com
+
+$template LogglyFormat,"<%%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [<%= @customer_token %>@41058  tag=\"<%= @env %>\" tag=\"<%= @logging_tag %>\"] %msg%\n"
+
+if $programname == 'tomcat' then @@logs-01.loggly.com:514; LogglyFormat  # This is a filter to the Loggly port number without a template
+& ~

@@ -1,0 +1,33 @@
+set daemon <%= node['monit']['poll_period'] %>
+  with start delay <%= node['monit']['poll_start_delay'] %>
+
+set logfile <%= node['monit']['log_file'] %>
+
+set mailserver email-smtp.us-east-1.amazonaws.com port 587
+  username "<%= node['oe-monitoring']['ses']['access_key_id'] %>"
+  password "<%= node['oe-monitoring']['ses']['secret_access_key'] %>"
+  using TLSV1 with timeout 30 seconds
+
+set eventqueue
+    basedir /var/monit  # set the base directory where events will be stored
+#    slots 1000          # optionaly limit the queue size
+
+set mail-format {
+  from: <%= node['monitoring']['monit']['mail_from'] %>
+  subject: $EVENT $SERVICE on <%= node.chef_environment %> check system <%= node.name %> $DATE
+  message: Alert from check system <%= node.name %>
+Date: $DATE
+For $SERVICE ($EVENT) and take $ACTION
+---------------------------------------
+$DESCRIPTION
+
+
+}
+
+set alert <%= node['monitoring']['monit']['mail_to'] %> NOT ON { action, instance, pid, ppid }
+
+set httpd port 3737
+  use address localhost
+  allow localhost
+
+include /etc/monit/conf.d/*.conf

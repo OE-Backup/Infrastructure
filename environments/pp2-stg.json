@@ -1,0 +1,162 @@
+{
+  "name": "pp2-stg",
+  "description": "",
+  "cookbook_versions": {
+    "apt": "= 2.2.1",
+    "java": "= 1.22.0",
+    "aws-fixes": "= 0.1.1",
+    "build-essential": "= 1.4.2",
+    "ntp": "= 1.3.2",
+    "oeinfra": "= 0.0.40",
+    "oe-openvpn": "= 0.1.3",
+    "oe-amq": "= 1.5.6",
+    "oe-monitoring": "= 0.1.9",
+    "oe-apache2": "= 0.0.1",
+    "oe-logs": "= 0.2.0",
+    "oe-postgresql": "= 0.5.0",
+    "pp2-store2": "= 0.0.8",
+    "pp2-ps": "= 0.1.6",
+    "pp2-as": "= 0.2.5",
+    "pp2-amq": "= 1.0.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "tomcat": {
+      "databag_item": "pp2-stg"
+    },
+    "access_groups": [
+      {
+        "group": "fnc"
+      },
+      {
+        "group": "fnc",
+        "dst_group": "tomcat7"
+      }
+    ],
+    "oe-openvpn": {
+      "as": {
+        "auth.ldap.0.server.0.host": "opendj1.oe-sys.com:1389",
+        "auth.ldap.0.server.1.host": "opendj2.oe-sys.com:1389",
+        "private_networks": [
+          "10.16.20.0/24",
+          "10.16.21.0/24",
+          "10.16.22.0/24",
+          "10.16.148.0/24",
+          "10.16.149.0/24",
+          "10.16.150.0/24"
+        ],
+        "vpn.daemon.0.client.network": "10.80.224.0",
+        "vpn.daemon.0.client.netmask_bits": "24"
+      }
+    },
+    "oe-infra": {
+      "provisioning": {
+        "domain": "thinkglish.com"
+      },
+      "auth": {
+        "ldap_url": "ldaps://opendj1.oe-sys.com:1636"
+      }
+    },
+    "ssl": {
+      "fqdn": "thinkglish.com"
+    },
+    "pp2": {
+      "domain": "thinkglish_com"
+    },
+    "store2": {
+      "memcached": {
+        "enable": true
+      }
+    },
+    "monitoring": {
+      "monit": {
+        "mail_from": "someone@openenglish.com",
+        "mail_to": "analia.lorenzatto@openenglish.com",
+        "enabled": true
+      },
+      "appdynamics": {
+        "enabled": false
+      },
+      "datadog": {
+        "enabled": true
+      },
+      "loggly": {
+        "enabled": true
+      }
+    },
+    "postgresql": {
+      "config": {
+        "resources": {
+          "shared_buffers": "24MB",
+          "work_mem": "64MB"
+        },
+        "wal": {
+          "archive_command": "test ! -f /mnt/archives/%f && cp %p /mnt/archives/%f"
+        }
+      },
+      "master": "10.16.20.40",
+      "server": {
+        "replication": true
+      },
+      "cluster": {
+        "hosts": [
+          "10.16.20.40",
+          "10.16.21.40",
+          "10.16.22.40"
+        ]
+      },
+      "pg_hba": [
+        {
+          "type": "host",
+          "db": "pp2_ps",
+          "user": "pp2_ps",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "pp2_ps",
+          "user": "pp2_ro",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "pp2_as",
+          "user": "pp2_as",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "pp2_as",
+          "user": "pp2_ro",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "pp2_amq",
+          "user": "pp2_amq",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "pp2_amq",
+          "user": "pp2_ro",
+          "addr": "10.16.0.0/16",
+          "method": "md5"
+        }
+      ]
+    },
+    "repmgr": {
+      "config": {
+        "cluster": "pp2_stg"
+      }
+    }
+  },
+  "override_attributes": {
+  }
+}

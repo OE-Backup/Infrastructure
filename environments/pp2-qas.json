@@ -1,0 +1,99 @@
+{
+  "name": "pp2-qa",
+  "description": "",
+  "cookbook_versions": {
+    "apt": "= 2.2.1",
+    "aws-fixes": "= 0.1.1",
+    "build-essential": "= 1.4.2",
+    "ntp": "= 1.3.2",
+    "oeinfra": "= 0.0.32",
+    "oe-openvpn": "= 0.1.2",
+    "oe-tomcat": "= 1.0.7",
+    "oe-amq": "= 1.1.4",
+    "oe-monitoring": "= 0.1.7",
+    "oe-apache2": "= 0.0.1",
+    "oe-logs": "= 0.2.0",
+    "oe-postgresql": "= 0.4.0",
+    "pp2-store2": "= 0.0.7",
+    "pp2-ps": "= 0.1.3",
+    "pp2-as": "= 0.2.1",
+    "pp2-amq": "= 1.0.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "oe-openvpn": {
+      "as": {
+        "auth.module.type": "ldap",
+        "auth.ldap.0.server.0.host": "opendj1.oe-sys.com:1389",
+        "auth.ldap.0.server.1.host": "opendj2.oe-sys.com:1389",
+        "private_networks": [
+          "10.64.30.0/24",
+          "10.64.31.0/24",
+          "10.64.32.0/24",
+          "10.64.158.0/24",
+          "10.64.159.0/24",
+          "10.64.160.0/24"
+        ],
+        "vpn.daemon.0.client.network": "10.80.224.0",
+        "vpn.daemon.0.client.netmask_bits": "24"
+      }
+    },
+    "oe-infra": {
+      "provisioning": {
+        "domain": "dev.thinkglish.com"
+      },
+      "auth": {
+        "ldap_url": "ldaps://opendj1.oe-sys.com:1636"
+      }
+    },
+    "ssl": {
+      "type": "keystore",
+      "fqdn": "thinkglish.com"
+    },
+    "accessgrp": "fnc",
+    "pp2": {
+      "domain": "thinkglish_com"
+    },
+    "store2": {
+      "memcached": {
+        "enable": true
+      }
+    },
+    "etc": {
+      "comment1": "This is a hack and should be removed",
+      "comment2": "I add this here, otherwise oeinfra::ldapauth fails",
+      "group": {
+        "infra": {
+          "members": [
+            "alorenzatto"
+          ]
+        }
+      }
+    },
+    "monitoring": {
+      "monit": {
+        "mail_from": "someone@openenglish.com",
+        "mail_to": "analia.lorenzatto@openenglish.com",
+        "enabled": true
+      },
+      "appdynamics": {
+        "enabled": true
+      },
+      "datadog": {
+        "enabled": true
+      }
+    },
+    "postgresql": {
+      "config": {
+        "shared_buffers": "24MB",
+        "work_mem": "64MB"
+      },
+      "server": {
+        "replication": false
+      }
+    }
+  },
+  "override_attributes": {
+  }
+}

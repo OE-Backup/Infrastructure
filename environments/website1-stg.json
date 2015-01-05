@@ -1,0 +1,13 @@
+{
+  "name": "website1-stg",
+  "description": "",
+  "cookbook_versions": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+"accessgrp": "website"
+  },
+  "override_attributes": {
+  }
+}

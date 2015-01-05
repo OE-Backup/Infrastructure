@@ -1,0 +1,80 @@
+{
+  "name": "data_bag_item_website2_settings",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "website2",
+  "raw_data": {
+    "id": "settings",
+    "website2-prd": {
+      "tomcat": {
+        "jdbc_user": "dotcms",
+        "jdbc_url": "jdbc:postgresql://prd-db-master-i.oe-sys.com/dotcms",
+        "jdbc_maxActive": "200",
+        "jdbc_maxIdle": "20"
+      },
+      "salesforce": {
+        "user": "sf.system@openenglish.com",
+        "environment": "production",
+        "timeout": "60000",
+        "ownerfinance": "005400000013ouT",
+        "isproduction": true
+      },
+      "salesforce2": {
+        "sf_client_id": "3MVG9A2kN3Bn17huNXtqIQXBkz.DjJq_9ROVwbRTQ26TmGc1dmesuonnOqvTQ1V17j_iWf_Lq6Nrmiz9Ejk5t",
+        "sf_user": "sf.website@openenglish.com",
+        "sf_uri": "login.salesforce.com"
+      },
+      "plugins": {
+        "origin": "http://www2.openenglish.com,http://www2.openenglish.com.br,http://www.openenglish.com,https://www.openenglish.com,http://www.openenglish.com.br,https://www.openenglish.com.br,http://www.openenglish.com.es,https://www.openenglish.com.es,http://www.openenglish.es,https://www.openenglish.es,http://www.openenglishusa.com,https://www.openenglishusa.com,http://aprender.openenglish.com"
+      }
+    },
+    "website2-stg": {
+      "tomcat": {
+        "jdbc_user": "dotcms",
+        "jdbc_url": "jdbc:postgresql://stg-db-master-i.thinkglish.com/dotcms",
+        "jdbc_maxActive": "200",
+        "jdbc_maxIdle": "20"
+      },
+      "salesforce": {
+        "user": "sf.system@openenglish.com.oetest0",
+        "environment": "stage",
+        "timeout": "60000",
+        "ownerfinance": "005400000013ouT",
+        "isproduction": false
+      },
+      "salesforce2": {
+        "sf_client_id": "3MVG9zJJ_hX_0bb_ytOLcJXC1X24EQugvSUPWogVWLd59R.4Ys8Lqu9EEAHPv5FxrIlW.sjw1JkH4WyL.2Qel",
+        "sf_user": "sf.website@openenglish.com.uat",
+        "sf_uri": "test.salesforce.com"
+      },
+      "plugins": {
+        "origin": "http://www2-elb.thinkglish.com,http://www2-br-elb.thinkglish.com,https://www2-elb.thinkglish.com,https://www2-br-elb.thinkglish.com,http://aprender.thinkglish.com,https://aprender.thinkglish.com,http://stg-website20-node1.thinkglish.com,https://stg-website20-node1.thinkglish.com"
+      }
+    },
+    "website2-dev": {
+      "tomcat": {
+        "jdbc_user": "dotcms",
+        "jdbc_url": "jdbc:postgresql://devqa-db-master.thinkglish.com/dotcms",
+        "jdbc_maxActive": "200",
+        "jdbc_maxIdle": "20"
+      },
+      "salesforce": {
+        "user": "sf.system@openenglish.com.oetest0",
+        "environment": "stage",
+        "timeout": "60000",
+        "ownerfinance": "005400000013ouT",
+        "isproduction": false
+      },
+      "salesforce2": {
+        "sf_client_id": "3MVG9zJJ_hX_0bb_ytOLcJXC1X24EQugvSUPWogVWLd59R.4Ys8Lqu9EEAHPv5FxrIlW.sjw1JkH4WyL.2Qel",
+        "sf_user": "sf.website@openenglish.com.uat",
+        "sf_uri": "test.salesforce.com"
+      },
+      "plugins": {
+        "origin": "http://dev-web2.thinkglish.com,http://dev-web2-multi1.thinkglish.com,https://dev-web2.thinkglish.com,https://dev-web2-multi1.thinkglish.com,http://aprender-dev.thinkglish.com,https://aprender-dev.thinkglish.com"
+      }
+    },
+    "website2-qa": {
+    }
+  }
+}

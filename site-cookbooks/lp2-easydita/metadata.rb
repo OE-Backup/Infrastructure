@@ -1,0 +1,12 @@
+name             'lp2-easydita'
+maintainer       'Martin Barriviera'
+maintainer_email 'martin.barriviera@openenglish.com'
+license          'All rights reserved'
+description      'Installs/Configures lp2-easydita'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.0.2'
+depends		 'apache2'
+depends		 'apt'
+depends		 'tomcat'
+depends		 'monit'
+depends		 'datadog'

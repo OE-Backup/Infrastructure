@@ -1,0 +1,21 @@
+{
+  "name": "data_bag_item_third-party_loggly",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "third-party",
+  "raw_data": {
+    "id": "loggly",
+    "prd": {
+      "encrypted_data": "Ke18axve3aQY3ockt5RYLvsIbnYJHgQW1HDnVYW+VwnzF+w5F5EBeQhKKJtb\nzH94wFwGljFdfdanlaM6SC3GU/HIO619dII4zl6t/pW9TWs=\n",
+      "iv": "w8SOTx8GDbmoYaaWQMJs3g==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    },
+    "stg": {
+      "encrypted_data": "8nekbQuPyUhTe1bTQLGuMZXUW2OKsDXkwPLVk8c/q3oNfHPZkXpUHbuZRO7K\n8e3o0ePkLh0fvlaKGib3D0NsP8HC3nOAIUKnGNl6yGQSUCc=\n",
+      "iv": "+mmX+GJvcoLILjlRE8P/OQ==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

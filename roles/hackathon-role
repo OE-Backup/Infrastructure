@@ -1,0 +1,50 @@
+{
+  "name": "hackathon-role",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "datadog": {
+      "alerts": [
+        {
+          "name": "[WARNING] System.CPU.idle lower than 10%",
+          "message": "[WARNING] is working on System.CPU.idle lower than 10 % @federico.aguirre@openenglish.com",
+          "aggregator": "min",
+          "period": "last_10m",
+          "metric": "system.cpu.idle",
+          "group_by": "hackathon-env, hackathon-role",
+          "threshold": "< 20",
+          "enable_multi": true
+        },
+        {
+          "name": "[CRITICAL] System.CPU.idle lower than 10%",
+          "message": "[CRITICAL] is working on System.CPU.idle lower than 10 % @federico.aguirre@openenglish.com",
+          "aggregator": "min",
+          "period": "last_10m",
+          "metric": "system.cpu.idle",
+          "group_by": "hackathon-env, hackathon-role",
+          "threshold": "< 10",
+          "enable_multi": true
+        }
+      ]
+    },
+    "override_attributes": {
+    },
+    "chef_type": "role",
+    "run_list": [
+
+    ],
+    "env_run_lists": {
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "hackathon-env": [
+      "recipe[oe-monitoring::datadog]"
+    ]
+  }
+}

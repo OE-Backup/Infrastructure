@@ -1,0 +1,39 @@
+{
+  "name": "app-salesforce-callcenter-node",
+  "description": "Salesforce application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "salesforce": {
+      "salesforce-prd": {
+        "ssl_domain": "openenglish_com"
+      }
+    },
+    "tomcat": {
+      "version": 7
+    },
+    "ssl": {
+      "type": "keystore",
+      "pem": {
+        "prefix": "/opt/salesforce/ssl"
+      },
+      "pkcs12": {
+        "prefix": "/opt/salesforce/ssl"
+      },
+      "keystore": {
+        "prefix": "/opt/salesforce/ssl"
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "salesforce-prd": [
+      "role[base]",
+      "recipe[salesforce]"
+    ]
+  }
+}

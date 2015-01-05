@@ -1,0 +1,13 @@
+{
+  "name": "lp1-stg",
+  "description": "",
+  "cookbook_versions": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+"accessgrp": "lp2"
+  },
+  "override_attributes": {
+  }
+}

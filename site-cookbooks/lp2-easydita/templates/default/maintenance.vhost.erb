@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    DocumentRoot /var/www/maintenance/
+    ServerName <%= @server_name %>
+    ServerAlias <%= @server_alias %>
+</VirtualHost>
+
+<VirtualHost _default_:443>
+    RewriteEngine On
+    RewriteCond %{HTTPS} on
+    DocumentRoot /var/www/maintenance/
+
+    SSLEngine On
+    SSLProxyEngine On
+    SSLCertificateFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.crt
+    SSLCertificateKeyFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.key
+    SSLCertificateChainFile /etc/apache2/sites-conf/default/ssl/wildcard.<%= @domain %>.ca
+</VirtualHost>

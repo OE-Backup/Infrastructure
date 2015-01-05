@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chef managed file -->
+<Context<%= " path=\"#{@context['path']}\"" unless @context['path'].nil? %><%= " docBase=\"#{@context['doc_base']}\"" unless @context['doc_base'].nil? %>>
+  <%-
+    unless @context['properties'].nil?
+      @context['properties'].select { |p| 
+        p.include?('dst') and p['dst'] == 'context'
+      }.each { |f|
+  -%>
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+  <Environment type="java.lang.String" override="false" 
+    name="<%= f['src'] %>" 
+    value="<%= @context['properties_prefix'] %>/<%= f['src'] %>"
+  />
+  <%- } end -%>
+
+  <% unless @context['jdbc'].nil? -%>
+  <Resource auth="Container"
+    <% @context['jdbc'].keys.each do |key| -%>
+    <%= key %>="<%= @context['jdbc'][key] %>"
+    <% end -%>
+  />
+  <%- end -%>
+
+  <%- unless @context['memcache'].nil? -%>
+  <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+    <% @context['memcache'].keys.each do |key| -%>
+    <%= key %>="<%= @context['memcache'][key] %>"
+    <% end -%>
+  />
+  <% end -%>
+</Context>
+

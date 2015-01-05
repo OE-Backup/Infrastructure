@@ -1,0 +1,45 @@
+{
+  "name": "salesforce-prd",
+  "description": "Salesforce for production environment",
+  "cookbook_versions": {
+    "apt": "= 2.2.1",
+    "java": "= 1.22.0",
+    "aws-fixes": "= 0.1.1",
+    "build-essential": "= 1.4.2",
+    "ntp": "= 1.3.2",
+    "oeinfra": "= 0.0.40",
+    "oe-apache2": "= 0.0.1",
+    "oe-logs": "= 0.2.0",
+    "salesforce": "= 0.0.2"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "domain_name": "oe-sys.com",
+    "access_groups": [
+      {
+        "group": "jenkins_admin"
+      }
+    ],
+    "oe-infra": {
+      "provisioning": {
+        "domain": "oe-sys.com"
+      },
+      "auth": {
+        "ldap_url": "ldaps://opendj1.oe-sys.com:1636"
+      }
+    },
+    "ssl": {
+      "type": "keystore",
+      "fqdn": "oe-sys.com"
+    },
+    "salesforce": {
+      "domain": "openenglish_com"
+    },
+    "tomcat": {
+      "databag_item": "pp2-prd"
+    }
+  },
+  "override_attributes": {
+  }
+}

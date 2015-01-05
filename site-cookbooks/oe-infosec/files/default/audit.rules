@@ -1,0 +1,24 @@
+# This file contains the auditctl rules that are loaded
+# whenever the audit daemon is started via the initscripts.
+# The rules are simply the parameters that would be passed
+# to auditctl.
+
+# First rule - delete all
+-D
+
+# Increase the buffers to survive stress events.
+# Make this bigger for busy systems
+-b 320
+
+# Feel free to add below this line. See auditctl man page
+
+# Add Messages for execute commands 
+-a exit,always -F arch=b32 -S execve -F euid=0 -F auid!=0 -F auid!=4294967295
+-a exit,always -F arch=b64 -S execve -F euid=0 -F auid!=0 -F auid!=4294967295
+
+# Exclude Messages Type not interesting
+-a exclude,always -F msgtype=PATH
+-a exclude,always -F msgtype=CWD
+-a exclude,always -F msgtype=CONFIG_CHANGE
+-a exclude,always -F msgtype=CRED_DISP
+-a exclude,always -F msgtype=BPRM_FCAPS

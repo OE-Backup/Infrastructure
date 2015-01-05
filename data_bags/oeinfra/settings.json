@@ -1,0 +1,65 @@
+{
+  "name": "data_bag_item_oeinfra_settings",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "oeinfra",
+  "raw_data": {
+    "id": "settings",
+    "aws_ses": {
+      "prd": {
+        "endpoint": "email-smtp.us-east-1.amazonaws.com:587",
+        "host": "email-smtp.us-east-1.amazonaws.com",
+        "port": "587",
+        "access_key_id": "AKIAIR24K7DNISBVFDIA"
+      },
+      "stg": {
+        "endpoint": "email-smtp.us-east-1.amazonaws.com:587",
+        "host": "email-smtp.us-east-1.amazonaws.com",
+        "port": "587",
+        "access_key_id": "AKIAIXQH7QPPHD3B5PSA"
+      }
+    },
+    "aws": {
+      "aws_script_url": "https://s3.amazonaws.com/infra-packages/aws",
+      "aws_cli53_key": "AKIAIZHKVGZGC4LGRQCA",
+      "prod": {
+        "aws_readonly_key": "AKIAI4M6LZPO5WZE24TA"
+      },
+      "prd": {
+        "aws_readonly_key": "AKIAI4M6LZPO5WZE24TA"
+      },
+      "stg": {
+        "aws_readonly_key": "AKIAI4M6LZPO5WZE24TA"
+      },
+      "dev": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      },
+      "qa": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      },
+      "qa1": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      },
+      "qa2": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      },
+      "qar": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      },
+      "qas": {
+        "aws_readonly_key": "AKIAIE7HWF5P4XF5Z6RA"
+      }
+    },
+    "cron-node": {
+      "aws": {
+        "ses": {
+          "endpoint": "email-smtp.us-east-1.amazonaws.com:587",
+          "access_key_id": "AKIAIR24K7DNISBVFDIA"
+        },
+        "s3": {
+          "access_key_id": "AKIAILE3CFTVE5KXHIXA"
+        }
+      }
+    }
+  }
+}

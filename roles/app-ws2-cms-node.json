@@ -1,0 +1,86 @@
+{
+  "name": "app-ws2-cms-node",
+  "description": "Website 2.0 application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "access_groups": [
+      {
+        "group": "website",
+        "to_group": "adm"
+      },
+      {
+        "group": "website",
+        "to_group": "dotcms"
+      }
+    ],
+    "dotcms": {
+    },
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "website2": {
+      "oe-probe_url": "https://s3.amazonaws.com/infra-packages/oe-probe-tomcat7.war",
+      "oe-probe_checksum": "103ab8b1ea54ee5e5ddb3b066d3987dcca87469e83308b95a6a16a55d6e3a91d"
+    },
+    "monitoring": {
+      "loggly": {
+        "services": {
+          "dotcms": {
+            "filename": "/opt/dotcms/dotserver/tomcat/logs/dotcms.log"
+          },
+          "of": {
+            "filename": "/opt/dotcms/dotserver/tomcat/logs/of.log"
+          },
+          "tomcat": {
+            "filename": "/opt/dotcms/dotserver/tomcat/logs/catalina.out"
+          }
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "website2-prd": [
+      "role[base]",
+      "recipe[website2-dotcms::default]",
+      "recipe[website2-dotcms::dotcms-cluster]",
+      "recipe[oe-monitoring::datadog]",
+      "recipe[oe-monitoring::loggly]",
+      "recipe[oeinfra::swap]"
+    ],
+    "website2-stg": [
+      "role[base]",
+      "recipe[website2-dotcms::default]",
+      "recipe[website2-dotcms::dotcms-cluster]",
+      "recipe[oe-monitoring::datadog]",
+      "recipe[oe-monitoring::loggly]",
+      "recipe[oeinfra::swap]"
+    ],
+    "website2-qa": [
+      "role[base]",
+      "recipe[website2-dotcms::default]"
+    ],
+    "website2-dev": [
+      "role[base]",
+      "recipe[website2-dotcms::default]"
+    ]
+  }
+}

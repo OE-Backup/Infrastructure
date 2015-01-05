@@ -1,0 +1,37 @@
+#!/usr/bin/env rake
+
+require 'rspec/core/rake_task'
+require 'foodcritic'
+
+hosts = [
+
+  {
+    :name  => '10.16.0.114',
+    :roles => [ :webserver, :java, :tomcat ]
+  }
+
+]
+
+task :default => [ :foodcritic, :spec ]
+
+# Foodcritic
+FoodCritic::Rake::LintTask.new do |t|
+  #t.options = { }
+end
+
+# Chefspec
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts    = '-f d -c'
+  t.pattern       = 'spec/*_spec.rb'
+  t.fail_on_error = true
+end
+
+# Serverspec
+hosts = hosts.map do |host|
+  {
+    :name  => host[:name],
+    :alias => host[:name].split('.').first,
+    :roles => "{#{host[:roles].join(',')}}"
+  }
+end
+

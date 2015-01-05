@@ -1,0 +1,15 @@
+{
+  "name": "data_bag_item_demographic_lp2-prd",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "demographic",
+  "raw_data": {
+    "id": "lp2-prd",
+    "tomcat": {
+      "encrypted_data": "quMcKYJ0dy53XkdCXGs4gh829vi7LqsIgPx8CfNgX2x3TftmMIesqqvJwTY1\nr2trz4600ZCmoQ7PSn4Qmfjc53YTTiAvjzOGzspLUsY1uuroT/U75fJqwVVH\n1dAKfEi0UTD54SJFSoMVxWblwLzX9yNUXl1Y+ff1TY0TAoryqolb3fmaMOvy\nB+P78xykLPCdq90tQdIGyL9IFZMxWvJqcbgXGgbUfrc2UMECGKohcEdUItnF\naUD0uBfJdOBYTcE9pEilAbQItWcTvWrbZdGc97gPFK/uYx1EHGR7BkHYNNR8\nuSL0iLGKmtLUGNEwZ5iProwvBDtFqFivW5yYKzh7pgGMrNXhhkNf5ztIA54e\nIOBJmOnNlB02Xl4z3VEjlr1EtKIcTEvDUVm1h1HutDiLv1qpWqBDW6uI7+Vk\nWn/G2zVQehBHTDBpEs/xxhbZa3H3UFd5HfdjIgXCDCEcORd22Dz8vMmAGxDS\n1CDgkZC05S4PkXAcrF6lWQLDwqg+bqK6Lhtoin1TIYlF+HKkHJ8WVLR57lO6\nKbqSWFcl1Cj6wQx/oEDn6xMb8RIK4pC2qs8gCFyF4hMM4RfK1rwcXN38wQmX\n+6IiAlYeiL4qgt+rJiM2RH2aoQsrtGomCBaVIaGv2AmncoNi+COUzP93xgRr\nEPZLCX2rkvpnnYKcZ96n9Xms6qoXRHqwBTTalc4Ktili8CuQF0C/9yWzqy0E\n9XPJkabtv/BEWCjEmtiDInDLCQ2SKUCppiXklEIZuqf3KZCIJw/wsf1in28Q\nEe7+juz6F6dBAj4uODWh+JFQr9QzBYmXLGe4ink22Mn3txsORCVrxWys5LDN\nEV8vDeQbMd+qbEsWkXngU25dHtBv6udttEyeq+spHY52kBPAgOX9pBKbJb98\nEpUnzdtbjbwmbgN/rg==\n",
+      "iv": "SavWeUb3/MRYpjNexdJ4mw==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

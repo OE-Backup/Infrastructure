@@ -1,0 +1,60 @@
+#!/bin/bash
+
+user="dotcms"
+base="/opt/dotcms/dotserver"
+logfile=/var/log/dotcms-bin.log
+
+DESC="dotcms"
+NAME="dotcms"
+DAEMON=$NAME
+SCRIPTNAME=/etc/init.d/$NAME
+
+check_plugins(){
+  [ -d "${base}" ] && cd "${base}"
+  hashNow=`find ${base}/plugins -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | awk {'print $1'}`
+  hashOld=`cat ${base}/plugins.md5 | awk {'print $1'}`
+  if [ "${hashOld}" != "${hashNow}" ]; then
+    echo "Plugins have changed! Reloading..."
+    su -c "cd ${base} && ./bin/undeploy-plugins.sh && ./bin/deploy-plugins.sh" ${user} | tee -a "$logfile" 
+    echo ${hashNow} > ${base}/plugins.md5
+  fi
+}
+
+d_start() {
+  [ -d "${base}" ] && \
+#  check_plugins
+  su -c "cd ${base} && ./bin/startup.sh" ${user} | tee -a "$logfile" >&2
+}
+
+d_stop() {
+  [ -d "${base}" ] && \
+  su -c "cd ${base} && ./bin/shutdown.sh" ${user} | tee -a "$logfile" >&2
+}
+
+
+case "$1" in
+  start)
+    echo -n "Starting $DESC: $NAME"
+    d_start
+    echo "."
+    ;;
+  stop)
+    echo -n "Stopping $DESC: $NAME"
+    d_stop
+    echo "."
+    ;;
+  restart|force-reload)
+    echo -n "Restarting $DESC: $NAME"
+    d_stop
+    sleep 1
+    d_start
+    echo "."
+    ;;
+  *)
+    echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
+

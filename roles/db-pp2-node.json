@@ -1,0 +1,88 @@
+{
+  "name": "db-pp2-node",
+  "description": "Payment Platform Database role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "postgresql": {
+      "databases": [
+        {
+          "name": "pp2_as",
+          "owner": "pp2_as"
+        },
+        {
+          "name": "pp2_ps",
+          "owner": "pp2_ps"
+        },
+        {
+          "name": "pp2_amq",
+          "owner": "pp2_amq"
+        }
+      ],
+      "databag_item": {
+        "users": "pp2"
+      }
+    },
+    "oeinfra": {
+      "disks": {
+        "xvdf": {
+          "label": "pg_data",
+          "mount_point": "/var/lib/postgresql"
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp2-prd": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-stg": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-dev": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]"
+    ],
+    "pp2-qa": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qa1": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]"
+    ],
+    "pp2-qa2": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]"
+    ],
+    "pp2-qar": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]"
+    ],
+    "pp2-qas": [
+      "role[base]",
+      "recipe[oeinfra::disk]",
+      "recipe[oe-postgresql]"
+    ]
+  }
+}

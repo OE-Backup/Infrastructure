@@ -1,0 +1,69 @@
+{
+  "name": "app-lp2-easydita-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "tomcat": {
+      "base_version": 6,
+      "java_options": "-Djava.awt.headless=true -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -server -d64 -Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Duser.language=en -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Duser.timezone=America/New_York -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=/var/log/tomcat7/jvm.log",
+      "deploy_manager_apps": true
+    },
+    "lp2": {
+      "oe-probe_url": "https://s3.amazonaws.com/infra-packages/oe-probe-tomcat7.war",
+      "oe-probe_checksum": "103ab8b1ea54ee5e5ddb3b066d3987dcca87469e83308b95a6a16a55d6e3a91d",
+      "easydita": {
+        "lp2-prd": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/easydita/ROOT.war",
+          "war_checksum": "06f9d1de2323df4a165393363218c506ec4e61ed005ebbf269dede14031e8682"
+        },
+        "lp2-stg": {
+          "war_url": "https://s3.amazonaws.com/infra-packages/lp2/easydita/ROOT.war",
+          "war_checksum": "06f9d1de2323df4a165393363218c506ec4e61ed005ebbf269dede14031e8682"
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-easydita::default]",
+      "recipe[lp2-easydita::monit]",
+      "recipe[lp2-easydita::loggly]",
+      "recipe[lp2-easydita::datadog]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-easydita::default]",
+      "recipe[lp2-easydita::monit]",
+      "recipe[lp2-easydita::loggly]"
+    ],
+    "lp2-dev": [
+      "role[base]"
+    ],
+    "lp2-qa": [
+      "role[base]"
+    ]
+  }
+}

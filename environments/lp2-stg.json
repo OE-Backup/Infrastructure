@@ -1,0 +1,71 @@
+{
+  "name": "lp2-stg",
+  "description": "LP 2.0 stage environment",
+  "cookbook_versions": {
+    "tomcat": "= 0.14.4",
+    "lp2-ui": "= 0.1.16",
+    "lp2-mobile": "= 0.0.1",
+    "apache2": "= 1.7.0",
+    "oe-monitoring": "= 0.1.9"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "monitoring": {
+      "monit": {
+        "mail_from": "someone@openenglish.com",
+        "mail_to": "analia.lorenzatto@openenglish.com",
+        "enabled": false
+      },
+      "appdynamics": {
+        "enabled": true
+      },
+      "loggly": {
+        "enabled": true
+      },
+      "datadog": {
+        "enabled": true
+      }
+    },
+    "domain_name": "thinkglish.com",
+    "ssl": {
+      "fqdn": "thinkglish.com"
+    },
+    "lp2-ca": {
+      "server_name": "lp2-ca"
+    },
+    "accessgrp": "lp2",
+    "lp2": {
+      "domain": "thinkglish.com",
+      "db": {
+        "domain": "thinkglish.com",
+        "hostname": "stg-lp2-pgpool-master",
+        "notify_email": "alert.stage@openenglish.com",
+        "sysctl": {
+          "kernel": {
+            "shmmax": 27150328978,
+            "shmall": 6628498
+          }
+        }
+      },
+      "mobile": {
+        "version": "2.0.9",
+        "deb_url": "http://artifactory.thinkglish.com/artifactory/libs-release-local/com/openenglish/lp2/lp2-mobile-package/2.0.9/lp2-mobile-package-2.0.9.deb"
+      },
+      "api": {
+        "version": "2.0.31",
+        "deb_url": "http://repository.oe-sys.com/artifactory/simple/libs-release-local/com/openenglish/lp2/lp2-api-package/2.0.31/lp2-api-package-2.0.31.deb"
+      },
+      "ui": {
+        "elb": {
+          "cname": "lp2.thinkglish.com"
+        }
+      }
+    },
+    "monit": {
+      "notify_email": "alert.stage@openenglish.com"
+    }
+  },
+  "override_attributes": {
+  }
+}

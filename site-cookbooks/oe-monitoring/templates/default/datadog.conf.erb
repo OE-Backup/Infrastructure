@@ -1,0 +1,10 @@
+[Main]
+
+dd_url: https://app.datadoghq.com
+
+api_key: <%= node['dd_api_key'] %>
+
+hostname: <%= node.name %>
+tags: <%= node.chef_environment %>, <%= node['roles'][0] %>, <%= node.name %>
+
+use_mount: no

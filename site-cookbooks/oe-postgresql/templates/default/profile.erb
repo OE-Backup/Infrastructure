@@ -1,0 +1,22 @@
+# Non tty session
+[ -z "$PS1" ] && return
+
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+if [ -d "<%= node['postgresql']['prefix']['install'] %>/bin" ] ; then
+  PATH=<%= node['postgresql']['prefix']['install'] %>/bin:$PATH
+fi
+                                 
+export PGPORT=<%= node['postgresql']['config']['conns']['port'] %>
+export PGUSER=<%= node['postgresql']['user']['name'] %>
+export PGHBA=<%=  node['postgresql']['prefix']['cfg'] %>
+export PGDATA=<%= node['postgresql']['prefix']['data'] %>
+export PGLOG=<%=  node['postgresql']['prefix']['log'] %>
+
+# FIXME
+export PGEXEC=/var/lib/postgresql/ejecuciones
+export PGARCH=<%= node['postgresql']['prefix']['archives'] %>
+export PGBKP=/mnt/backups/postgresql/daily
+export PGBACKUPS=/mnt/backups/postgresql
+export PGDUMPS=/mnt/postgresql/pg_dump
+

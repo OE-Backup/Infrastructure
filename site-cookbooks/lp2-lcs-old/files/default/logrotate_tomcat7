@@ -1,0 +1,13 @@
+/var/log/tomcat7/catalina.out {
+  copytruncate
+  daily
+  rotate 7
+  compress
+  missingok
+  create 640 tomcat7 adm
+  postrotate
+        invoke-rc.d rsyslog restart > /dev/null
+  endscript
+}
+
+

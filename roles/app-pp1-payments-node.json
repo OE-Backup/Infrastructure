@@ -1,0 +1,27 @@
+{
+  "name": "app-pp1-payments-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp1-prd": [
+      "role[base]"
+    ],
+    "pp1-stg": [
+      "role[base]"
+    ],
+    "pp1-dev": [
+      "role[base]"
+    ],
+    "pp1-qa": [
+      "role[base]"
+    ]
+  }
+}

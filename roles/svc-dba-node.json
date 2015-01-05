@@ -1,0 +1,27 @@
+{
+  "name": "svc-dba-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "db-prd": [
+      "role[base]"
+    ],
+    "db-stg": [
+      "role[base]"
+    ],
+    "db-dev": [
+      "role[base]"
+    ],
+    "db-qa": [
+      "role[base]"
+    ]
+  }
+}

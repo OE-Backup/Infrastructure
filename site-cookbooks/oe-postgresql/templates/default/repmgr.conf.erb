@@ -1,0 +1,7 @@
+# Chef managed file
+###################################################
+
+<% node['repmgr']['config'].each do |key, value| -%>
+<%= key %>=<%= value%>
+<% end -%>
+

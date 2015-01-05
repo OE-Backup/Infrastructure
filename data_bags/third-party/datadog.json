@@ -1,0 +1,15 @@
+{
+  "name": "data_bag_item_third-party_datadog",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "third-party",
+  "raw_data": {
+    "id": "datadog",
+    "DD_API_KEY": {
+      "encrypted_data": "grf19W9M6rDtq8aWtKLN0IXO5sslFLioDko6+9IH3ePP1slwvUnaGZESPkRA\nS4vpx7WvgwODvvZzX/NTvK2yGQ==\n",
+      "iv": "mLXpDRTm6grqqE2PAMywhg==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

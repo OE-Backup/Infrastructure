@@ -1,0 +1,27 @@
+{
+  "name": "data_bag_item_third-party_duokeys",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "third-party",
+  "raw_data": {
+    "id": "duokeys",
+    "IKEY": {
+      "encrypted_data": "5h2p3PmWlsoQtupTzp+PGwfe9tfqO2Wr7tDCCu/OpPV+cPIvRCUvULNq3NZw\nxRdG\n",
+      "iv": "z1fM26yT4acVrtEa7d33Bw==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    },
+    "SKEY": {
+      "encrypted_data": "Ok2BHHCCZduev0Gj1tOgU9K+E54346qpEZT7FPrKSD0big7vvWkV6K+/TlmU\nQp1ctYtCiwVDSr2PiLXR/fPC5g==\n",
+      "iv": "Ibmw3snXNj5Ts6tEs23rjQ==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    },
+    "HOST": {
+      "encrypted_data": "vs3ThPjFa1+WLt+9LGrly0vx5FbC8ay905SIOfs59mg5MkoGAiBWY1CapU4d\nSTu2\n",
+      "iv": "ZI5gquguVmcqgQAI9XJrIQ==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

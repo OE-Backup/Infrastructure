@@ -1,0 +1,15 @@
+{
+  "name": "app-lp2-mobile-node",
+  "description": "LP 2.0 Mobile application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[lp2-mobile::default]"
+  ],
+  "env_run_lists": {
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "svc-infra-cron-node",
+  "description": "Internal server to run routinary cron jobs for Infrastructure team",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "accessgrp": "",
+    "oeinfra": {
+      "backups": {
+        "chef11": {
+          "server_volume_id": "vol-5c4c6306",
+          "num_snapshots_to_keep": 3
+        },
+        "prd-pp2-chef-master": {
+          "server_volume_id": "vol-1ac66340",
+          "num_snapshots_to_keep": 3
+        },
+        "prd-pp2-banorte-master": {
+          "server_volume_id": "vol-fb8857b6",
+          "num_snapshots_to_keep": 3
+        },
+        "spotfirewp": {
+          "server_volume_id": "vol-7b647321",
+          "num_snapshots_to_keep": 3
+        },
+        "spotfire": {
+          "server_volume_id": "vol-9b1924c1",
+          "num_snapshots_to_keep": 3
+        },
+        "prd-infosec-ad-master": {
+          "server_volume_id": "vol-dbe6ce91",
+          "num_snapshots_to_keep": 3
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[oeinfra::cron-node]"
+  ],
+  "env_run_lists": {
+  }
+}

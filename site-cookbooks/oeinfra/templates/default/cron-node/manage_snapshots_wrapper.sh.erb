@@ -1,0 +1,4 @@
+#!/bin/sh
+
+python <%= node['oeinfra']['cron-node']['backup_scripts_path'] %>/manage_snapshots.py <%= @volume_id %> <%= @num_snapshots %> \
+  | mail -s "<%= @subject %>" --append="From: <%= @from %>" <%= @to %>

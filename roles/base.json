@@ -1,0 +1,21 @@
+{
+  "name": "base",
+  "description": "Common role for all servers managed by OE Infrastructure team",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[apt]",
+    "recipe[ntp]",
+    "recipe[aws-fixes::set_hostname]",
+    "recipe[oeinfra::essential-packages]",
+    "recipe[oeinfra::autohome]",
+    "recipe[oeinfra::settag]",
+    "recipe[oeinfra::ldapauth]"
+  ],
+  "env_run_lists": {
+  }
+}

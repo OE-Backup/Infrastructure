@@ -1,0 +1,19 @@
+{
+  "name": "tools-1620",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "tomcat": {
+      "base_version": 7
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[tomcat-all]"
+  ],
+  "env_run_lists": {
+  }
+}

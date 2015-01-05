@@ -1,0 +1,48 @@
+{
+  "name": "svc-pp2-openvpn-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "oe-openvpn": {
+      "as": {
+        "auth.module.type": "ldap"
+      }
+    },
+    "etc": {
+      "comment1": "This is a hack and should be removed",
+      "comment2": "I add this here, otherwise oeinfra::ldapauth fails",
+      "group": {
+        "infra": {
+          "members": [
+            "mlandaeta"
+          ]
+        }
+      }
+    },
+    "accessgrp": "root"
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp2-prd": [
+      "role[base]",
+      "recipe[oe-openvpn::default]"
+    ],
+    "pp2-stg": [
+      "role[base]",
+      "recipe[oe-openvpn::default]"
+    ],
+    "pp2-dev": [
+      "role[base]",
+      "recipe[oe-openvpn::default]"
+    ],
+    "pp2-qa": [
+      "role[base]",
+      "recipe[oe-openvpn::default]"
+    ]
+  }
+}

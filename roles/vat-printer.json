@@ -1,0 +1,57 @@
+{
+  "name": "vat-printer",
+  "description": "VAT-printer webapp",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "tomcat": {
+      "base_version": 7,
+      "port": 80,
+      "java_options": "-server -Xms1256m -Xmx1256m -XX:PermSize=128m -XX:MaxPermSize=256m -Djava.awt.headless=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9001 -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false",
+      "authbind": "yes",
+      "deploy_manager_apps": true,
+      "oe-probe_url": "https://s3.amazonaws.com/infra-packages/oe-probe-tomcat7.war",
+      "oe-probe_checksum": "103ab8b1ea54ee5e5ddb3b066d3987dcca87469e83308b95a6a16a55d6e3a91d"
+    },
+    "datadog": {
+      "api_key": "cb048854cdca01c056ce5881726478c1",
+      "application_key": "fdd2017345db811289cac975c3365cad5cf40b74"
+    },
+    "loggly": {
+      "username": "automation",
+      "password": "NP6agH3ZZtut3r4",
+      "domain": "openenglish.loggly.com",
+      "compiletime": true
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[apt]",
+    "recipe[ntp]",
+    "recipe[java]",
+    "recipe[tomcat]",
+    "recipe[tomcat::users]",
+    "recipe[tomcat::openenglish]",
+    "recipe[loggly]",
+    "recipe[loggly::openenglish]"
+  ],
+  "env_run_lists": {
+  }
+}

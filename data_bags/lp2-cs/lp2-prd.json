@@ -1,0 +1,15 @@
+{
+  "name": "data_bag_item_lp2-cs_lp2-prd",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "lp2-cs",
+  "raw_data": {
+    "id": "lp2-prd",
+    "tomcat": {
+      "encrypted_data": "odL73it0KiRC/ayBV5HrVnBEubCT6syKGv5jA6Aj74c=\n",
+      "iv": "NlEt5yTSF/6YUnD3IKE9EQ==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

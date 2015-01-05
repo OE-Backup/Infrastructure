@@ -1,0 +1,16 @@
+{
+  "name": "website2-dev",
+  "description": "",
+  "cookbook_versions": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "accessgrp": "website",
+    "dotcms": {
+      "java_mem": "-Xmx6G -Xms6G -Xmn512m -XX:MaxPermSize=512m"
+    }
+  },
+  "override_attributes": {
+  }
+}

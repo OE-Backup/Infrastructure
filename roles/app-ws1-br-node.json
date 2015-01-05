@@ -1,0 +1,27 @@
+{
+  "name": "app-ws1-br-node",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "website1-prd": [
+      "role[base]"
+    ],
+    "website1-stg": [
+      "role[base]"
+    ],
+    "website1-dev": [
+      "role[base]"
+    ],
+    "website1-qa": [
+      "role[base]"
+    ]
+  }
+}

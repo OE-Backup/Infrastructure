@@ -1,0 +1,83 @@
+{
+  "name": "app-pp2-store2-node",
+  "description": "PP 2.0 Store2 application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "store2": {
+      "pp2-prd": {
+        "ssl_domain": "openenglish_com"
+      }
+    },
+    "tomcat": {
+      "version": 7,
+      "databag": "pp2-store2",
+      "properties_prefix": "/opt/store2/env"
+    },
+    "ssl": {
+      "type": "keystore",
+      "pem": {
+        "prefix": "/opt/store2/ssl"
+      },
+      "pkcs12": {
+        "prefix": "/opt/store2/ssl"
+      },
+      "keystore": {
+        "prefix": "/opt/store2/ssl"
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "pp2-prd": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qa": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ],
+    "pp2-qar": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]"
+    ],
+    "pp2-qa1": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]"
+    ],
+    "pp2-qa2": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]"
+    ],
+    "pp2-qas": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]"
+    ],
+    "pp2-dev": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]"
+    ],
+    "pp2-stg": [
+      "role[base]",
+      "recipe[pp2-store2::apache]",
+      "recipe[pp2-store2::default]",
+      "recipe[oe-monitoring::default]",
+      "recipe[oe-monitoring::monit]"
+    ]
+  }
+}

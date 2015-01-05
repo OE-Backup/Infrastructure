@@ -1,0 +1,2 @@
+# Next linea creates an entry into /etc/cron.d
+<%= node['cron']['frecuence'] %> <%= node['cron']['user'] %> <%= node['cron']['destiny'] %>

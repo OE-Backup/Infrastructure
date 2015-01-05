@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller-info>
+
+    <controller-host>openenglish.saas.appdynamics.com</controller-host>
+    <controller-port>80</controller-port>
+    <controller-ssl-enabled>false</controller-ssl-enabled>
+    <enable-orchestration>false</enable-orchestration>
+    <account-name>OpenEnglish</account-name>
+    <account-access-key>44bbxyuqifsh</account-access-key>
+
+    <application-name><%= node.chef_environment %></application-name>
+    <tier-name><%= node['roles'][0] %></tier-name>
+    <node-name><%= node.name %></node-name>
+
+    <force-agent-registration>false</force-agent-registration>
+
+</controller-info>

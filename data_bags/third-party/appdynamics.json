@@ -1,0 +1,27 @@
+{
+  "name": "data_bag_item_third-party_appdynamics",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "third-party",
+  "raw_data": {
+    "id": "appdynamics",
+    "name": {
+      "encrypted_data": "Ykj0kZ4WXcv7Hw4r5nEwZHcSkQW5EBi1jKgp6EVxBOE=\n",
+      "iv": "LmedxvUsWlbYrKusmf728Q==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    },
+    "access-key": {
+      "encrypted_data": "52SfUe2nJaicMWtcI5diVva9U+cZNI4fDiPhC0fX8kA=\n",
+      "iv": "vPxHJHW9TxWxbPZQx5CVOg==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    },
+    "controller-host": {
+      "encrypted_data": "ha0doKERx5lesCa8OBZjiQ/jnT4pqFqZldsfNt+l6zMSHbosVHeSDPM/7Jfi\nFA4zIkGqnBCj12WGZpeKkbV6NA==\n",
+      "iv": "IfrEP3PdjrIhTfKpqDa7VQ==\n",
+      "version": 1,
+      "cipher": "aes-256-cbc"
+    }
+  }
+}

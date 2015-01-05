@@ -1,0 +1,112 @@
+##      Distributed INDEX SYNCRONIZATION
+##      Required for cluster environments
+##      Note the dotCMS cluster will set itself up by setting the DIST_INDEXATION_ENABLED=true.
+DIST_INDEXATION_ENABLED=<%=@dist_indexation_enabled%>
+#DIST_INDEXATION_ENABLED=false
+##      In milliseconds
+DIST_INDEXATION_SERVER_ID=<%=@dist_indexation_server_id%>
+DIST_INDEXATION_SERVERS_IDS=<%=@dist_indexation_servers_ids%>
+
+##      CLUSTERED CACHE SETTINGS
+CACHE_CLUSTER_THROUGH_DB=<%=@cache_cluster_through_db%>
+##      Some systems are not set up for UDP Multicast over IPv6 properly.
+CACHE_FORCE_IPV4=<%=@cache_force_ipv4%>
+CACHE_PROTOCOL=<%=@cache_protocol%>
+
+##      The BINDPORT is the port to locally bind to.  The BINDADDRESS is the local address to bind to.  These are not always necessary.
+##      For TCP the bind address and port are usually required. If you are having issues with UDP try to set the bindaddress.
+##      The INITIAL_HOSTS is a comma separated list of hosts and port that are in the cluster. You must include the local server also.
+CACHE_BINDPORT=<%=@cache_bindport%>
+CACHE_BINDADDRESS=<%=@cache_bindaddress%>
+
+##      TCP Config
+##      The INITIAL_HOSTS is a comma separated list of hosts and port that are in the cluster. You must include the local server also.
+CACHE_TCP_INITIAL_HOSTS=<%=@cache_tcp_initial_hosts%>
+
+##      UDP Config
+#CACHE_MULTICAST_PORT=45588
+#CACHE_MULTICAST_ADDRESS=228.10.10.10
+
+##      This variable should be used only if the assets and reports are located in a
+##      shared folder in unix/linux enviroments we encourage you to use symbolic links
+##      If this variable is commented the system will work as usual using
+##      the ASSET_PATH variable as the assets directory inside liferay web root
+#ASSET_REAL_PATH = /Users/maruahues/Development/dotcmscluster/assets
+
+#  The name of your dotCMS cluster.  Each dotCMS cluster
+##  should have a unique name (all servers in a cluster share the same name)
+es.cluster.name=<%=@es_cluster_name%>
+
+##  Network addr to bind to
+#es.network.host=localhost
+es.network.host=<%=@es_network_host%>
+es.transport.tcp.port=<%=@es_transport_tcp_port%>
+
+##  port to look for
+es.network.port=<%=@es_network_port%>
+es.http.enabled=<%=@es_http_enabled%>
+es.http.port=<%=@es_http_port%>
+
+##  Elasticsearch cluster config
+es.discovery.zen.ping.multicast.enabled=<%=@es_discovery_zen_ping_multicast_enabled%>
+es.discovery.zen.ping.timeout=<%=@es_discovery_zen_ping_timeout%>
+es.discovery.zen.ping.unicast.hosts=<%=@es_discovery_zen_ping_unicast_hosts%>
+es.discovery.zen.minimum_master_nodes=<%= node['dotcms']['es_discovery_zen_minimum_master_nodes'] %>
+es.index.number_of_replicas=<%= node['dotcms']['es_index_number_of_replicas'] %>
+es.gateway.recover_after_nodes=<%= node['dotcms']['es_gateway_recover_after_nodes'] %>
+es.gateway.recover_after_time=<%= node['dotcms']['es_gateway_recover_after_time'] %>
+es.gateway.expected_nodes=<%= node['dotcms']['es_gateway_expected_nodes'] %>
+# Recommended by dotCMS support
+es.index.number_of_shards=<%= node['dotcms']['es_index_number_of_shards'] %>
+
+# Leverage ElasticSearch
+ELASTICSEARCH_USE_FILTERS_FOR_SEARCHING=<%=@elasticsearch_use_filters_for_searching%>
+
+# CacheConfigurations
+cache.adminconfigpool.size=100
+cache.blockdirectivecache.size=1000
+cache.blockdirectivehtmlpagecache.size=1000
+cache.categorybykeycache.size=1000
+cache.categorycache.size=1000
+cache.categorychildrencache.size=1000
+cache.categoryparentscache.size=1000
+cache.companypool.size=10
+cache.contentletcache.size=35000
+cache.fileassetmetadatacache.size=200
+cache.dotcmslayoutcache.size=1000
+cache.dotcmsrolecache.size=1000
+cache.dotcmsrolekeycache.size=1000
+cache.dotcmsuserrolecache.size=1000
+cache.fieldscache.size=1000
+cache.filecache.size=1000
+cache.foldercache.size=1000
+cache.hostaliascache.size=1000
+cache.hostcache.size=1000
+cache.hostvariablescache.size=1000
+cache.htmlpagecache.size=1000
+cache.identifiercache.size=50000
+cache.languagecacheimpl.size=1000
+cache.navcache.size=1000
+cache.parentpermissionablecache.size=2000
+cache.permissioncache.size=50000
+cache.plugincache.size=1000
+cache.portletpool.size=100
+cache.structurecache.size=500
+cache.templatecache.size=500
+cache.userdotcmscache.size=1000
+cache.useremaildotcmscache.size=1000
+cache.userproxycache.size=1000
+cache.velocitycache.size=1000
+cache.velocitymenucache.size=1000
+cache.velocitymisscache.size=1000
+cache.versioncache.size=40000
+cache.versioninfocache.size=40000
+cache.virtuallinkscache.size=1000
+cache.workflowcache.size=1000
+cache.workflowstepcache.size=1000
+cache.workflowtaskcache.size=1000
+cache.indiciescache.size=8
+cache.publishingendpointcache.size=100
+cache.workflowactioncache.size=1000
+cache.logmappercache.size=10
+

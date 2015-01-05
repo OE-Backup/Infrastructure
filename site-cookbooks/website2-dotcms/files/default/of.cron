@@ -1,0 +1,1 @@
+*/5 * * * * root /opt/dotcms/lsofStats.sh >> /opt/dotcms/dotserver/tomcat/logs/of.log

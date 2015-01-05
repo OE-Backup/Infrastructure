@@ -1,0 +1,182 @@
+{
+  "name": "db-lp2-node",
+  "description": "LP 2.0 database server node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "accessgrp": "dba",
+    "lp2": {
+      "db": {
+        "master?": false
+      }
+    },
+    "postgresql": {
+      "version": "9.2",
+      "config": {
+        "listen_addresses": "*",
+        "max_connections": 1000,
+        "shared_buffers": "16384MB",
+        "log_line_prefix": "%t [%p]: [%l-1] %m %u@%d %p %r",
+        "superuser_reserved_connections": 3,
+        "work_mem": "256MB",
+        "maintenance_work_mem": "6144MB",
+        "shared_preload_libraries": "repmgr_funcs",
+        "wal_level": "hot_standby",
+        "checkpoint_segments": 16,
+        "checkpoint_timeout": "3min",
+        "archive_mode": true,
+        "max_wal_senders": 10,
+        "wal_keep_segments": 50,
+        "hot_standby": true,
+        "max_standby_archive_delay": "70s",
+        "max_standby_streaming_delay": "70s",
+        "hot_standby_feedback": true,
+        "ssl": false,
+        "random_page_cost": 1.1,
+        "cpu_tuple_cost": 0.003,
+        "cpu_index_tuple_cost": 0.001,
+        "cpu_operator_cost": 0.0005,
+        "effective_cache_size": "40960MB",
+        "log_destination": "stderr",
+        "logging_collector": true,
+        "log_directory": "/mnt/postgresql/log",
+        "log_filename": "postgresql-%Y-%m-%d_%H%M%S.log",
+        "log_truncate_on_rotation": false,
+        "log_rotation_age": "1d",
+        "log_rotation_size": "10MB",
+        "client_min_messages": "notice",
+        "log_min_messages": "warning",
+        "log_min_error_statement": "error",
+        "log_min_duration_statement": 1000,
+        "debug_pretty_print": true,
+        "log_checkpoints": true,
+        "log_connections": true,
+        "log_disconnections": true,
+        "log_duration": false,
+        "log_lock_waits": true,
+        "log_statement": "mod",
+        "log_temp_files": 256,
+        "timezone": "UTC",
+        "lc_messages": "en_US.UTF-8",
+        "lc_monetary": "en_US.UTF-8",
+        "lc_numeric": "en_US.UTF-8",
+        "lc_time": "en_US.UTF-8"
+      },
+      "pg_hba": [
+        {
+          "type": "host",
+          "db": "all",
+          "user": "oe_activemq",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "all",
+          "user": "dbadmin",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "all",
+          "user": "lp20",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "all",
+          "user": "datadog",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "repmgr",
+          "user": "repmgr",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "lp20",
+          "user": "lp20_ui",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "lp20",
+          "user": "lp20_ss",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "lp20",
+          "user": "lp20_tp",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "lp20",
+          "user": "lp20_in",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "lp20",
+          "user": "lp20_lcs",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "edita",
+          "user": "easydita",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        },
+        {
+          "type": "host",
+          "db": "replication",
+          "user": "all",
+          "addr": "0.0.0.0 0.0.0.0",
+          "method": "md5"
+        }
+      ]
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-db::default]",
+      "recipe[lp2-db::loggly]",
+      "recipe[lp2-db::datadog]",
+      "recipe[lp2-db::dba]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-db::default]",
+      "recipe[lp2-db::loggly]",
+      "recipe[lp2-db::monit]",
+      "recipe[lp2-db::dba]"
+    ],
+    "lp2-qa": [
+      "role[base]",
+      "recipe[lp2-db::default]"
+    ],
+    "lp2-dev": [
+      "role[base]",
+      "recipe[lp2-db::default]"
+    ]
+  }
+}

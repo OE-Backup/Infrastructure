@@ -1,0 +1,11 @@
+## [ Chef generated file ] ##
+
+<%= @cfg['logfile'] %> {
+  copytruncate
+  compress
+  missingok
+  <%= @cfg['interval'] %>
+  rotate <%= @cfg['rotate_count'] %>
+  create 644 <%= @cfg['owner']%> <%= @cfg['group']%>
+}
+

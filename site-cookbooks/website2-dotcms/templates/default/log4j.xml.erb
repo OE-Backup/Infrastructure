@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern" value="%d %-5p %c - %m%n" />
+            </layout>
+    </appender>
+
+	<appender name="ASYNC" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+		<appender-ref ref="FILE" />
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+    <appender name="ASYNC-TEST" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+        <param name="BufferSize" value="500" />
+        <param name="FailToSync" value="false" />
+        <appender-ref ref="TEST" />
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+    <appender name="ASYNC-SECURITY" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+		<appender-ref ref="SECURITY"/>
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+    <appender name="ASYNC-SITESEARCH" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+		<appender-ref ref="SITESEARCH"/>
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+    <appender name="ASYNC-ADMINAUDIT" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+       	<appender-ref ref="ADMINAUDIT"/>
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+    <appender name="ASYNC-USERACTIVITY" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+       	<appender-ref ref="USERS_ACTIVITY"/>
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+     <appender name="ASYNC-VELOCITY" class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+       	<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+		<appender-ref ref="VELOCITY" />
+<!--		<appender-ref ref="CONSOLE" /> -->
+    </appender>
+
+	<appender name="ASYNC-PUSHPUBLISH"
+		class="org.apache.log4j.appender.ActiveAsynchronousAppender">
+		<param name="BufferSize" value="500" />
+		<param name="FailToSync" value="false" />
+		<appender-ref ref="PUSHPUBLISH" />
+		<appender-ref ref="CONSOLE" />
+	</appender>
+
+<!--
+    <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+       	<appender-ref ref="FILE"/>
+    </appender>
+
+    <appender name="ASYNC-SECURITY" class="org.apache.log4j.AsyncAppender">
+       	<appender-ref ref="SECURITY"/>
+    </appender>
+
+    <appender name="ASYNC-SITESEARCH" class="org.apache.log4j.AsyncAppender">
+       	<appender-ref ref="SITESEARCH"/>
+    </appender>
+
+    <appender name="ASYNC-ADMINAUDIT" class="org.apache.log4j.AsyncAppender">
+       	<appender-ref ref="ADMINAUDIT"/>
+    </appender>
+-->
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+            <param name="File" value="${catalina.home}/logs/dotcms.log"/>
+            <param name="MaxFileSize" value="<%= node['dotcms']['log4j_logger']['dotcms_log']['MaxFileSize'] %>"/>
+            <param name="MaxBackupIndex" value="<%= node['dotcms']['log4j_logger']['dotcms_log']['MaxBackupIndex'] %>"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern"
+                            value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+            </layout>
+    </appender>
+
+    <appender name="TEST" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/dotcms-testing.log"/>
+        <param name="MaxFileSize" value="512MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="SECURITY" class="org.apache.log4j.RollingFileAppender">
+            <param name="File" value="${catalina.home}/logs/dotcms-security.log"/>
+            <param name="MaxFileSize" value="512MB"/>
+            <param name="MaxBackupIndex" value="10"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern"
+                            value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+            </layout>
+    </appender>
+
+    <appender name="SITESEARCH" class="org.apache.log4j.RollingFileAppender">
+            <param name="File" value="${catalina.home}/logs/dotcms-sitesearch.log"/>
+            <param name="MaxFileSize" value="512MB"/>
+            <param name="MaxBackupIndex" value="10"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern"
+                            value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+            </layout>
+    </appender>
+
+    <appender name="ADMINAUDIT" class="org.apache.log4j.RollingFileAppender">
+            <param name="File" value="${catalina.home}/logs/dotcms-adminaudit.log"/>
+            <param name="MaxFileSize" value="512MB"/>
+            <param name="MaxBackupIndex" value="10"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern"
+                            value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+            </layout>
+    </appender>
+
+    <appender name="USERS_ACTIVITY" class="org.apache.log4j.appender.RollingNewFileAppender">
+            <param name="File" value="${catalina.home}/logs/dotcms-userActivity.log"/>
+            <param name="MaxFileSize" value="512MB"/>
+            <param name="MaxBackupIndex" value="10"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern"
+                            value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+            </layout>
+    </appender>
+
+    <appender name="VELOCITY" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/dotcms-velocity.log"/>
+        <param name="MaxFileSize" value="<%= node['dotcms']['log4j_logger']['dotcms_velocity_log']['MaxFileSize'] %>"/>
+        <param name="MaxBackupIndex" value="<%= node['dotcms']['log4j_logger']['dotcms_velocity_log']['MaxBackupIndex'] %>"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+        </layout>
+    </appender>
+
+	<appender name="PUSHPUBLISH" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/dotcms-pushpublish.log" />
+		<param name="MaxFileSize" value="512MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy HH:mm:ss:SSS z}] %5p %c{2}: %m%n" />
+		</layout>
+	</appender>
+
+    <logger name="org.directwebremoting">
+	  <level value="warn"/>
+	</logger>
+	<logger name="com.dotmarketing.portlets.contentlet.business.ReindexThread">
+		<level value="debug"/>
+	</logger>
+	<logger name="com.bradmcevoy.http">
+		<level value="<%= node['dotcms']['log4j_logger']['com_bradmcevoy_http'] %>"/>
+	</logger>
+	<logger name="org.apache.tomcat.util.http.Parameters">
+		<level value="fatal"/>
+	</logger>
+	<logger name="org.directwebremoting.impl.DefaultConverterManager">
+		<level value="fatal"/>
+	</logger>
+	<logger name="com.liferay.portal.action.LoginAction" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_liferay_portal_action_LoginAction'] %>"/>
+		<appender-ref ref="ASYNC-SECURITY" />
+	</logger>
+
+	<logger name="com.liferay.portal.action.LogoutAction" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_liferay_portal_action_LogoutAction'] %>"/>
+		<appender-ref ref="ASYNC-SECURITY" />
+	</logger>
+
+	<logger name="com.liferay.portal.action.LoginAsAction" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_liferay_portal_action_LoginAsAction'] %>"/>
+		<appender-ref ref="ASYNC-SECURITY" />
+	</logger>
+
+	<logger name="com.liferay.portal.action.LogoutAsAction" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_liferay_portal_action_LogoutAsAction'] %>"/>
+		<appender-ref ref="ASYNC-SECURITY" />
+	</logger>
+
+    <logger name="org.apache.nutch" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['org_apache_nutch'] %>"/>
+		<appender-ref ref="ASYNC-SITESEARCH" />
+	</logger>
+
+	<logger name="org.apache.hadoop" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['org_apache_hadoop'] %>"/>
+		<appender-ref ref="ASYNC-SITESEARCH" />
+	</logger>
+
+	<logger name="com.dotmarketing.util.SecurityLogger" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_util_SecurityLogger'] %>"/>
+		<appender-ref ref="ASYNC-SECURITY" />
+	</logger>
+
+	<logger name="com.dotmarketing.util.AdminLogger	" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_util_AdminLogger'] %>"/>
+		<appender-ref ref="ASYNC-ADMINAUDIT" />
+	</logger>
+
+	<logger name="com.dotmarketing.util.ActivityLogger" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_util_ActivityLogger'] %>"/>
+		<appender-ref ref="ASYNC-USERACTIVITY" />
+	</logger>
+
+    <logger name="com.dotmarketing.servlets.test.ServletTestRunner" additivity="false">
+        <level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_servlets_test_ServletTestRunner'] %>"/>
+        <appender-ref ref="ASYNC-TEST" />
+    </logger>
+
+	<logger name="com.dotmarketing.util.PushPublishLogger"
+		additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_util_PushPublishLogger'] %>" />
+		<appender-ref ref="ASYNC-PUSHPUBLISH" />
+	</logger>
+
+
+    <logger name="com.dotmarketing.velocity.VelocityServlet" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_velocity_VelocityServlet'] %>"/>
+		<appender-ref ref="ASYNC-VELOCITY" />
+	</logger>
+
+	<logger name="com.dotmarketing.viewtools" additivity="false">
+		<level value="<%= node['dotcms']['log4j_logger']['com_dotmarketing_viewtools'] %>"/>
+		<appender-ref ref="ASYNC-VELOCITY" />
+	</logger>
+
+	<logger name="org.apache.velocity" additivity="false">
+	  <level value="warn"/>
+	  <appender-ref ref="ASYNC-VELOCITY" />
+	</logger>
+
+    <!-- make Jersey less noisy -->
+    <logger name="com.sun.jersey.spi.container.servlet.WebComponent" additivity="false">
+        <level value="error"/>
+    </logger>
+
+    <root>
+            <priority value="<%= node['dotcms']['log4j_logger']['com_sun_jersey_spi_container_servlet_WebComponent'] %>"/>
+            <appender-ref ref="ASYNC"/>
+    </root>
+
+</log4j:configuration>

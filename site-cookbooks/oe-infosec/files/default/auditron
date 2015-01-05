@@ -1,0 +1,11 @@
+/var/log/auditd/auditron.log {
+    weekly
+    rotate 5
+    compress
+    notifempty
+    size 50
+    create 644 root root
+    postrotate
+     /etc/init.d/auditd restart
+    endscript
+}

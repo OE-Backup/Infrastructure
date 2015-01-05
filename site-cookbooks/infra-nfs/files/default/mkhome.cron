@@ -1,0 +1,2 @@
+# This should run each 5 minutes to check if any home directory is missing.
+*/5 * * * * root /opt/mkhome.sh

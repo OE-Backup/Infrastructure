@@ -1,0 +1,58 @@
+{
+  "name": "app-lp2-comm-node",
+  "description": "LP 2.0 Chat application node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "7",
+      "java_home": "/usr/lib/jvm/java-7-oracle",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      },
+      "jdk": {
+        "7": {
+          "x86_64": {
+            "url": "https://infra-packages.s3.amazonaws.com/jdk-7u25-linux-x64.tar.gz",
+            "checksum": "f80dff0e19ca8d038cf7fe3aaa89538496b80950f4d10ff5f457988ae159b2a6"
+          }
+        }
+      }
+    },
+    "tomcat": {
+      "base_version": 7,
+      "java_options": "-Dssm.cache.disable=true -Djava.awt.headless=true -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -server -d64 -Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Duser.language=en -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Duser.timezone=America/New_York -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=/var/log/tomcat7/jvm.log",
+      "libs": [
+        "postgresql-9.2-1002-jdbc4.jar",
+        "catalina-jmx-remote.jar"
+      ]
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "lp2-prd": [
+      "role[base]",
+      "recipe[lp2-comm::default]",
+      "recipe[lp2-comm::datadog]",
+      "recipe[oeinfra::swap]"
+    ],
+    "lp2-stg": [
+      "role[base]",
+      "recipe[lp2-comm::default]",
+      "recipe[oeinfra::swap]"
+    ],
+    "lp2-qa": [
+      "role[base]",
+      "recipe[lp2-comm::default]"
+    ],
+    "lp2-dev": [
+      "role[base]",
+      "recipe[lp2-comm::default]"
+    ]
+  }
+}

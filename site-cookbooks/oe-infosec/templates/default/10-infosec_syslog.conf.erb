@@ -1,0 +1,34 @@
+# Testing rules for rsyslog - Information Security
+
+# Enable RELP Syslog send
+#$ModLoad omrelp
+
+# Config for Syslog Server
+:msg, regex, "sshd.*preauth"                    @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, contains, "publickey"                     @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, contains, "sshd:session"                  @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, contains, "sshd:auth"                     @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, regex, "USER.*COMMAND"                    @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, contains, "pam_unix"                      @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, regex, "rsyslogd.*Version"                @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+:msg, regex, "logging.*proc"                    @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT'] %>
+
+<% node['oe-infosec']['rsyslog'].each do |key , value|
+        next if node[key].nil?
+%>
+<%= value %>
+<% end %>
+
+# Config for Auditd (root)
+$ModLoad imfile
+#$InputFileName /var/log/audit/auditron.log
+$InputFileName /var/log/audit/audit.log
+#$InputFileTag auditron
+$InputFileTag audit:
+$InputFileStateFile stat-audit
+$InputFileSeverity info
+$InputRunFileMonitor
+$InputFilePollInterval 1
+
+if $programname == 'audit' then @@<%= node['oe-infosec']['rsyslog']['URL'] %>:<%= node['oe-infosec']['rsyslog']['PORT2'] %>
+& ~

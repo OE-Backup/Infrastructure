@@ -1,0 +1,23 @@
+{
+  "name": "lp2-dev",
+  "description": "",
+  "cookbook_versions": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "accessgrp": "lp2",
+    "lp2": {
+      "db": {
+        "sysctl": {
+          "kernel": {
+            "shmmax": 27150328978,
+            "shmall": 6628498
+          }
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  }
+}

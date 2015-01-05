@@ -1,0 +1,5 @@
+# Following line gives higher priority to installation of packes from oe_repo.
+Package: *
+Pin: origin ubuntu-repo.oe-sys.com
+Pin-Priority: 900
+

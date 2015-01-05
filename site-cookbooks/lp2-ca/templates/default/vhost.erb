@@ -1,0 +1,14 @@
+
+<VirtualHost *:80>
+  ServerName  <%= node['lp2-ca']['server_name'] %>.<%= node['domain_name'] %>
+  ServerAlias <%= node.name %>.<%= node['domain_name'] %>
+
+  RewriteEngine on
+  RewriteRule ^/(.*)? https://%{HTTP_HOST}/$1
+
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+  LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" proxy
+  SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" forwarded
+  CustomLog ${APACHE_LOG_DIR}/access.log combined env=!forwarded
+  CustomLog ${APACHE_LOG_DIR}/access.log proxy env=forwarded
+</VirtualHost>

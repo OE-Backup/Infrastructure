@@ -1,0 +1,15 @@
+chef_type:           environment
+cookbook_versions:
+default_attributes:
+  accessgrp: fnc
+  ssl:
+    fqdn: thinkglish.com
+    type: keystore
+  store2:
+    domain:    thinkglish_com
+    memcached:
+      enable: true
+description:         
+json_class:          Chef::Environment
+name:                store2-stg
+override_attributes:
