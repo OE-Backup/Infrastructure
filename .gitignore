@@ -1,0 +1,10 @@
+.rake_test_cache
+
+###
+# Ignore Chef key files and secrets
+###
+*.swp
+.chef
+.chef/*.pem
+.chef/encrypted_data_bag_secret
+.chef/*.rb

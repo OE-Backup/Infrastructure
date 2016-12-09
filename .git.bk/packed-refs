@@ -1,0 +1,174 @@
+# pack-refs with: peeled 
+5d8fa2e9a769c8e20341ffb2b5153480a8e9045a refs/remotes/origin/DEVOPS-45
+4565ad511806b0792e16f8bdef8fa23500e27834 refs/remotes/origin/DEVOPS-71
+201214264b848c03e7ae6e338be01db9ff2cf7d7 refs/remotes/origin/DEVOPS-78
+24bf031cc49c55c3923b82936feb1355b42bf0de refs/remotes/origin/DEVOPS-82
+226612f4705d884bfda4f903d94b93dd0a3c0eae refs/remotes/origin/TOOLS-1249
+d3d53012a008eeb447ef6cbef76d5b1cfb8fb84e refs/remotes/origin/TOOLS-1261
+e375ee7fd782d5a6c98d3812f076a846371257ca refs/remotes/origin/TOOLS-1305
+1582c0cfd63a1def4b0773494e6a900f367540d1 refs/remotes/origin/TOOLS-1313
+bf47b8f2831301950f7ad8d4b1304787a248fd38 refs/remotes/origin/TOOLS-1326
+08a4bcb32fb69788004a349048c6e4733532e381 refs/remotes/origin/TOOLS-1361
+dc769503f6465a2ae4568a996d2898ea3dea62e1 refs/remotes/origin/TOOLS-1405
+366f3b94ff62d3ae95116c2091451e869f30b888 refs/remotes/origin/TOOLS-1539
+5b129b33d3dc4a996f6a068f5df242d7365ce8e7 refs/remotes/origin/TOOLS-1575
+5e64a9b31def449d29c377bbc249d4a4a46bbdaa refs/remotes/origin/TOOLS-1577
+d3b8282df7e4197e70e6b18a9790eaf6c62793b7 refs/remotes/origin/TOOLS-1587
+04979b674d8aa0e76ab042d73d213f1506445572 refs/remotes/origin/TOOLS-1620
+c7da447d03d18e3e248b4a2a788b2e2ca94c33a6 refs/remotes/origin/TOOLS-1665
+4ff1a4769ca0b48a2b6cb4ffd2a19c2c0516f522 refs/remotes/origin/TOOLS-1700
+4fc9bf71f5e37a23b4af5df8194fea7f5d135b20 refs/remotes/origin/TOOLS-1703
+19687834526c6fd7a128f4fd08d4a2ecde228482 refs/remotes/origin/TOOLS-1723
+96d991a5ce1d1c8577e4bdf4697658445fcedc86 refs/remotes/origin/TOOLS-1746
+6e36e97a7655c35ec1f6da31d552ba58a12e2c3b refs/remotes/origin/TOOLS-1791
+f117b097d42c6c9e90db1e4493d2f33881df0fc9 refs/remotes/origin/TOOLS-1808
+b9e425e651f3204fb41a1bdbbb9ddc100f97ab2f refs/remotes/origin/TOOLS-1822
+252d2c431135a240386bc2fe298552529e053e0b refs/remotes/origin/TOOLS-1823
+0fb36952db651d413ded143767d54955fa15e424 refs/remotes/origin/TOOLS-1894
+34956c35d0fb5abec81f83c1b726bd6380741fd0 refs/remotes/origin/TOOLS-1902
+a93c5fa923c0f875c545bf27fd1e452e5bf2c661 refs/remotes/origin/TOOLS-1906
+3243376d194a24cbf1e93a5b67be7085331aa71c refs/remotes/origin/TOOLS-1928
+03fc6698982de8a5633809c273b4fa08debbf895 refs/remotes/origin/TOOLS-1974
+3ea077483cb89e1cd55c098ec8a3b846b382b9d2 refs/remotes/origin/TOOLS-2106
+93db79823ba029e3d50528dfb88ee8aca543b739 refs/remotes/origin/TOOLS-2770
+08f31c000bdc2ce6b04f372035f69ddf112c074d refs/remotes/origin/TOOLS-2787
+1833ebe12073d85c2034ba20922f393d0140b462 refs/remotes/origin/TOOLS-2788
+047cba794cd283c5e38438b99cb87a1395063eb8 refs/remotes/origin/TOOLS-2829
+73f4acc54f2dbd979d1a1191d240536de7353b0b refs/remotes/origin/botnia
+70fb7df083e7b59c62960d2b3b17e042a5f6002d refs/remotes/origin/chef-vendor-apt
+067e1adcac426b9c12fcae32953488a8cdfbd3d5 refs/remotes/origin/chef-vendor-chef_handler
+fa1228da901d7f8ba5794a2e89c426642723aa2d refs/remotes/origin/chef-vendor-datadog
+c87972c71bed8ecd176add96bf4e09e8d06f742c refs/remotes/origin/chef-vendor-java
+1244ab61acda242a3a3a2f4eade33f5da08ca828 refs/remotes/origin/chef-vendor-loggly
+7d9373b13f126b01491b57c623b9d1529b259cdc refs/remotes/origin/chef-vendor-ntp
+3b4392cb0a3bdd2b867fcfba323bdf2bb4133fe9 refs/remotes/origin/chef-vendor-openssl
+834fbb4afb1eb1d58932ffa96d2e75985564ea6f refs/remotes/origin/chef-vendor-tomcat
+fad068453ffddfc9b03a63c5d325b5715e6aa263 refs/remotes/origin/chef-vendor-windows
+abf98799106091d4e6d1d59f1c29c336ef3561ff refs/remotes/origin/chef-vendor-yum
+45c0880179afb76509bc3724e5aaa048cc67403f refs/remotes/origin/hackathon-FE
+f0e4bab1e420dba76de3dd720a8d1f245782dbef refs/remotes/origin/master
+31e7eff3fad6de3c86e857194f8e08bcfbbbf3e8 refs/remotes/origin/oe-pgpool
+0168b12b7f9a507e931c68075050f408dfce9ec4 refs/remotes/origin/release5.X
+9defafcdc6d158638981b46e146252be8346d7db refs/remotes/origin/tools-2141
+d579fdeff30a9a00f6981ed4d42b3fbdabb9abcd refs/remotes/origin/tools-2144
+e04c063e5754ae41a37e153b75e860d9f2a81987 refs/tags/cookbook-site-imported-apache2-1.7.0
+0e1c29d7621b5bd10245ef38535f150249ee2c0b refs/tags/cookbook-site-imported-apache2-1.8.14
+70fb7df083e7b59c62960d2b3b17e042a5f6002d refs/tags/cookbook-site-imported-apt-2.0.0
+47e71f1083d20e2cf5d621d2863fcf7dd4c37ffd refs/tags/cookbook-site-imported-apt-2.2.1
+62f91739a9327b94533f95b57070fec0e501ff34 refs/tags/cookbook-site-imported-build-essential-1.4.2
+067e1adcac426b9c12fcae32953488a8cdfbd3d5 refs/tags/cookbook-site-imported-chef_handler-1.1.4
+fa1228da901d7f8ba5794a2e89c426642723aa2d refs/tags/cookbook-site-imported-datadog-1.0.1
+c87972c71bed8ecd176add96bf4e09e8d06f742c refs/tags/cookbook-site-imported-java-1.12.0
+678de423c76330bdf9733ca2ebe44440767b0e99 refs/tags/cookbook-site-imported-java-1.13.0
+0b34222725a55eb438567a25d97bf017fa0ce957 refs/tags/cookbook-site-imported-java-1.19.2
+95422a99417b78e49617ff7b7c316892eb162fd7 refs/tags/cookbook-site-imported-loggly-0.0.2
+e6b57aa6400ba8c83fdf77ba305ae5c78e5fc956 refs/tags/cookbook-site-imported-loggly-0.0.3
+1244ab61acda242a3a3a2f4eade33f5da08ca828 refs/tags/cookbook-site-imported-loggly-0.1.0
+e7ce1359c1133926f7d77422982ee0bb9069ba03 refs/tags/cookbook-site-imported-monit-0.7.1
+7d9373b13f126b01491b57c623b9d1529b259cdc refs/tags/cookbook-site-imported-ntp-1.3.2
+3b4392cb0a3bdd2b867fcfba323bdf2bb4133fe9 refs/tags/cookbook-site-imported-openssl-1.0.2
+7f7fbed800ad252c3863cab059866671240cde62 refs/tags/cookbook-site-imported-openssl-1.1.0
+afa0725bde7259199bc557dd9991f469fdae086d refs/tags/cookbook-site-imported-openvpn-2.1.0
+eadb486b27225f981992daabd5eb45f3128a1a6a refs/tags/cookbook-site-imported-postgresql-3.1.0
+834fbb4afb1eb1d58932ffa96d2e75985564ea6f refs/tags/cookbook-site-imported-tomcat-0.14.2
+9cc0d8cacb47809e20b492cff0acdc17ceb02a03 refs/tags/cookbook-site-imported-tomcat-0.14.4
+fad068453ffddfc9b03a63c5d325b5715e6aa263 refs/tags/cookbook-site-imported-windows-1.10.0
+abf98799106091d4e6d1d59f1c29c336ef3561ff refs/tags/cookbook-site-imported-yum-2.3.0
+0b27ad1e782e5aa2c0bfeec1c57864a18ae2057f refs/tags/cookbook-site-imported-yum-3.0.4
+36b34fbc891e86b23cfb35c621a12e1ed53ae6c9 refs/tags/cookbook-site-imported-yum-epel-0.2.0
+e8c81a82b0eccea25dfec606687ef3f4273c5a69 refs/tags/lp2-db-0.1.0
+^d94c329a63bb6b2650500018f0e6775b2fc95557
+8de66abd8d44d7d73cd3c5b8a118dac6bff76b44 refs/tags/lp2-easydita-0.0.2
+^30a4a3220e08f0ffd61fa880aacb3f1164647f79
+c137c980001e8608dbd87c141dbae4a3cc42dffb refs/tags/lp2-ins-0.1.1
+^6e8dd3f9684ac4dc478646df88606a09c780b891
+88cdb2a9116d0b366f5d4ba0d29fcef7b96e9737 refs/tags/lp2-ins-0.1.2
+^760c8e7d92f6942ee5a98f52599532f7809a17b2
+c986b259e826bf27b59b5d6df84a6bd98815c80a refs/tags/lp2-ins-0.1.3
+^dff370cb59bcd7ac7b9924d71a20a0bbb3d78527
+6aebacd2281a3e68919dfd360b3430583416cff8 refs/tags/lp2-ins-0.1.4
+^30a4a3220e08f0ffd61fa880aacb3f1164647f79
+e8a4ee2ae8d61166981d21d8c11d25e346f640df refs/tags/lp2-lcs-0.0.1
+^0713caf14e7cf2b6a816ecd544a5a213b8e2b932
+42be66d334185ac45b8b09d8203860ded177250c refs/tags/lp2-lcs-0.0.2
+^760c8e7d92f6942ee5a98f52599532f7809a17b2
+207734e0b370f5698a6114bbc6f7478095e48cc0 refs/tags/lp2-lcs-0.0.3
+^ad45e903a6e5abe48e8ab6323a9052d1ed5d4e38
+68c963a86a8b685d90f4ea1935de6eaaba211843 refs/tags/lp2-lcs-0.0.4
+^dff370cb59bcd7ac7b9924d71a20a0bbb3d78527
+68b9a6f9bd54a362a3144e70f9e455b1cb35f625 refs/tags/lp2-lcs-0.0.5
+^ed995e70395569700010ad3e4d61d468269b59b8
+a802b9ef52e1a8562f2bbb7d5feee3608be04c9f refs/tags/lp2-lcs-0.1.5
+^30a4a3220e08f0ffd61fa880aacb3f1164647f79
+253205a8ffbc6f8034b6fec301871332eb14070d refs/tags/lp2-mobile-0.0.1
+^e853c8be3d27bcd0501f9d625f125c4ebd3233e7
+18d9d3ac68cc24376100c0b746de48aa630f9c7d refs/tags/lp2-ss-0.1.0
+^9ed750cbd6388250785747f7019fc2e59b8d5043
+f0490ecce53b8f07dabe00b8784c0a66efdc6ca3 refs/tags/lp2-ss-0.1.1
+^b965009d664fbdaadc46a04b8ae80f8f756d3e6a
+7051edab604480108f8278ddc42115afedf04725 refs/tags/lp2-ss-0.1.2
+^f455fb9d3a0d6d6aa3c423cb658de8cb8bc4edb1
+2d3dd895415e643f966fd681f899c0e68631babf refs/tags/lp2-ss-0.1.3
+^760c8e7d92f6942ee5a98f52599532f7809a17b2
+f48843f3dff7ded84dc9a30719abc8bf40ead2f0 refs/tags/lp2-ss-0.1.4
+^dff370cb59bcd7ac7b9924d71a20a0bbb3d78527
+d84d686374ed868724660a6c7557451d6e38a6ee refs/tags/lp2-tp-0.1.0
+^f44ccea4eae2a8a14114215b6bcd33df4a0a693a
+95f58b03c0cc0a7d40965fb5243bbd0ad4f37850 refs/tags/lp2-tp-0.1.2
+^9a64933e626a5dad727a3db7c865839f2f63bd13
+8305ecf496acd706036e0af248b676d6a28a9e65 refs/tags/lp2-tp-0.1.3
+^760c8e7d92f6942ee5a98f52599532f7809a17b2
+81414a58c32ab6e84877a9609078d5af6cce20fd refs/tags/lp2-tp-0.1.4
+^dff370cb59bcd7ac7b9924d71a20a0bbb3d78527
+653ad3a332a3defda4433a4831d3ef1ad447e555 refs/tags/lp2-tp-0.1.5
+^03a2920adb126abe392b6b6d61c12c59baa47c1f
+0b05b174107614f0006f22d695150fdf2c33c742 refs/tags/lp2-tp-0.1.6
+^30a4a3220e08f0ffd61fa880aacb3f1164647f79
+af80b09d2f24fe8bb6202590c8e38a2666545481 refs/tags/lp2-ui-0.1.10
+^760c8e7d92f6942ee5a98f52599532f7809a17b2
+77a115db5c869d9453902a722e44ce4fb612626c refs/tags/lp2-ui-0.1.11
+^dff370cb59bcd7ac7b9924d71a20a0bbb3d78527
+37adc5855e6880811f6ad6a900f1d7b88e727a30 refs/tags/lp2-ui-0.1.12
+^03a2920adb126abe392b6b6d61c12c59baa47c1f
+0ce366a94afa23918e910d643b7fb5db4f90d735 refs/tags/lp2-ui-0.1.13
+^30a4a3220e08f0ffd61fa880aacb3f1164647f79
+45902c2248c74627b18925ace8ba8198ebf3b812 refs/tags/lp2-ui-0.1.14
+^e853c8be3d27bcd0501f9d625f125c4ebd3233e7
+f83101139141b1dcd50b3b5e87922267d74dfcec refs/tags/lp2-ui-0.1.8
+^d537335f150a41990bd4f5d36ca0a77484f55235
+8b6b28359d0e3b863f0e5da16e7d68b1f0859a9b refs/tags/lp2-ui-0.1.9
+^2fa85069dc41ef1ec07c411adfaf1474e79120c5
+882f291a14c3f101645d2e23b39aa769910b29c6 refs/tags/lp20-ui-0.1
+^64961dcff7e5fd30b093f85a3e2ff81db6e93321
+42f0c76f1ac9c79ef8d1791f7d5956679f6f57c2 refs/tags/lp20-ui-0.1.1
+^4690f0eb1375cb5818dbeaa828b7beac175d5228
+e3903078762fccb100f4c0027b469f726ba61c53 refs/tags/lp20-ui-0.1.2
+^6a755087564bb40f2715d4336ef68283f459976f
+0ae4b53ba36860888ea75cebb2b8efde68fbfbd7 refs/tags/lp20-ui-0.1.3
+^af0d842eb6983938dab708f53a8f547543686b72
+7e7d68cf3490823a41c039e71c6a2776d79ba9e8 refs/tags/lp20-ui-0.1.4
+^3d732018c1a9d3b7d8b9f00cbde5e67b33042705
+f9c6c7f83604e789a4c4780b7b1e83f78addcc9e refs/tags/lp20-ui-0.1.5
+^db9de546791e57bc1badc68ff7ed502ecee3a8dd
+46f9615247667e0f22a4cc0c57d47060eccd13d8 refs/tags/lp20-ui-0.1.6
+^141c99dd7b633ca1ea0c336f009185f4fe759430
+655de79c6c45f25e36006f80c4b1e90fa94833c1 refs/tags/lp20-ui-0.1.7
+^ef4e94fb63d2a70e201dde7352ce84e930000da2
+b5c40c8b54fec60c05cf270436f10d263e824426 refs/tags/lp20-ui-0.1.8
+^d537335f150a41990bd4f5d36ca0a77484f55235
+3d62291ae3fb30794272e20b38ee007d483e6389 refs/tags/oe-openvpn-0.1.0
+^ba475bbe19b5eb3dbdaea4c1466c4a919f248740
+3d08af224c2597484b22e006cecdc8f0c450b405 refs/tags/oe-openvpn-0.1.3
+^29cd33bd398977ac4fd7f6b74ffd9952b3935a0f
+a5394c72704b7a5af0dab503a8c8c0d3e52df480 refs/tags/oeinfra-0.0.28
+^d1a24460b3391b4dbcc10b8a3eb1aba14c7bf8e1
+84d0d66f221a74a6bdc27337eb05f4ec34c5b710 refs/tags/oeinfra-0.0.29
+^d1f2a4052f8f8c8252d670f015e8cdbb1e944172
+273e0abea67276f9a3099f37e230fb1b957e79e4 refs/tags/oeinfra-0.0.33
+^a80041ca645cc1a06c007b102777078b11e0bfbc
+29e9f902798d94b418498ea83b20e20bed447161 refs/tags/oeinfra-0.0.35
+^2ce0869f72d895263aaa9da03a38705bcc81d7f9
+7c4aa9e5dfc0217cc129219c74b8a2e3224aeef6 refs/tags/oeinfra-0.0.6
+^78675678e539b093acabc9236864ebfff96eb69a
+ca5095dcd4351fabc761e75efc59d73dfa72ff21 refs/tags/oeinfra-0.0.8
+^90a2f246bca7a120e18a81d5af826a67a299c63c
